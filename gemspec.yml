@@ -1,0 +1,28 @@
+name: ronin-web-server
+summary: A custom Ruby web server based on Sinatra.
+description: |
+  ronin-web-server is a custom Ruby web server based on Sinatra tailored for
+  security research and development.
+
+license: LGPL-3.0
+authors: Postmodern
+email: postmodern.mod3@gmail.com
+homepage: https://ronin-rb.dev/
+has_yard: true
+
+metadata:
+  documentation_uri: https://rubydoc.info/gems/ronin-web-server
+  source_code_uri:   https://github.com/postmodern/ronin-web-server
+  bug_tracker_uri:   https://github.com/postmodern/ronin-web-server/issues
+  changelog_uri:     https://github.com/postmodern/ronin-web-server/blob/master/ChangeLog.md
+
+required_ruby_version: ">= 1.9.1"
+
+dependencies:
+  rack: ~> 1.3
+  sinatra: ~> 1.3
+  # Ronin dependencies:
+  ronin-support: ~> 0.4
+
+development_dependencies:
+  bundler: ~> 2.0
