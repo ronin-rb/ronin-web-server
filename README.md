@@ -76,7 +76,7 @@ See [Sinatra's Intro][1] for additional documentation.
 
 ronin-web-server - A custom Ruby web server based on Sinatra.
 
-Copyright (c) 2006-2021 Hal Brodigan (postmodern.mod3 at gmail.com)
+Copyright (c) 2006-2022 Hal Brodigan (postmodern.mod3 at gmail.com)
 
 This file is part of ronin-web-server.
 
