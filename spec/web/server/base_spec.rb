@@ -4,7 +4,7 @@ require 'ronin/web/server/base'
 require 'web/server/classes/test_app'
 require 'web/helpers/rack_app'
 
-describe Web::Server::Base do
+describe Ronin::Web::Server::Base do
   include Helpers::Web::RackApp
 
   before(:all) do
