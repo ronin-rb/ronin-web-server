@@ -131,9 +131,6 @@ module Ronin
           handler_name = handler.name.gsub(/.*::/, '')
 
           runner = lambda { |handler,server|
-            print_info "Starting Web Server on #{bind}:#{port}"
-            print_debug "Using Web Server handler #{handler_name}"
-
             begin
               handler.run(server,Host: bind, Port: port) do |server|
                 trap(:INT)  { quit!(server,handler_name) }
@@ -171,8 +168,6 @@ module Ronin
         def self.quit!(server,handler_name)
           # Use thins' hard #stop! if available, otherwise just #stop
           server.respond_to?(:stop!) ? server.stop! : server.stop
-
-          print_info "Stopping Web Server on #{bind}:#{port}"
         end
 
       end
