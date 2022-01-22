@@ -48,7 +48,7 @@ See [Sinatra's Intro][1] for additional documentation.
 
 ## Requirements
 
-* [Ruby] >= 2.7
+* [Ruby] >= 2.7.0
 * [rack] ~> 1.3
 * [sinatra] ~> 1.3
 * [ronin-support] ~> 0.4
