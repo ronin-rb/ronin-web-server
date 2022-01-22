@@ -139,7 +139,7 @@ module Ronin
                 set :running, true
               end
             rescue Errno::EADDRINUSE => e
-              print_error "Address is already in use: #{bind}:#{port}"
+              $stderr.puts "ronin-web-server: address is already in use: #{bind}:#{port}"
             end
           }
 
