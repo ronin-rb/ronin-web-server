@@ -49,6 +49,7 @@ See [Sinatra's Intro][1] for additional documentation.
 ## Requirements
 
 * [Ruby] >= 2.7.0
+* [webrick] ~> 1.0
 * [rack] ~> 1.3
 * [sinatra] ~> 1.3
 * [ronin-support] ~> 0.4
@@ -94,6 +95,7 @@ You should have received a copy of the GNU Lesser General Public License
 along with ronin-web-server.  If not, see <https://www.gnu.org/licenses/>.
 
 [Ruby]: https://www.ruby-lang.org
+[webrick]: https://github.com/ruby/webrick#readme
 [rack]: https://github.com/rack/rack#readme
 [sinatra]: https://github.com/sinatra/sinatra#readme
 [ronin-support]: https://github.com/ronin-rb/ronin-support#readme
