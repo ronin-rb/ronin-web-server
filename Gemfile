@@ -18,6 +18,7 @@ group :development do
 
   gem 'rspec',          '~> 3.0'
   gem 'simplecov',      '~> 0.20'
+  gem 'rack-test',      '~> 0.6'
 
   gem 'kramdown',      '~> 2.0'
   gem 'kramdown-man',  '~> 0.1'
