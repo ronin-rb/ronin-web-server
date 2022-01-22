@@ -19,8 +19,6 @@
 # along with ronin-web-server.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/ui/output/helpers'
-
 require 'sinatra/base'
 require 'rack/utils'
 
@@ -34,7 +32,6 @@ module Ronin
 
         include Rack::Utils
         include Sinatra::Helpers
-        include UI::Output::Helpers
 
         alias h escape_html
         alias file send_file

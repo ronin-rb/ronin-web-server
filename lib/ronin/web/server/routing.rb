@@ -20,7 +20,6 @@
 #
 
 require 'ronin/web/proxy'
-require 'ronin/ui/output/helpers'
 
 require 'rack/file'
 require 'rack/directory'
@@ -34,8 +33,6 @@ module Ronin
         end
 
         module ClassMethods
-          include UI::Output::Helpers
-
           #
           # Route any type of request for a given URL pattern.
           #
