@@ -1,8 +1,8 @@
 require 'spec_helper'
 require 'ronin/web/server/base'
 
-require 'web/server/classes/test_app'
-require 'web/helpers/rack_app'
+require 'classes/test_app'
+require 'helpers/rack_app'
 
 describe Ronin::Web::Server::Base do
   include Helpers::Web::RackApp

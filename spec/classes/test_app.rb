@@ -1,6 +1,6 @@
 require 'ronin/web/server/base'
 
-require 'web/server/classes/sub_app'
+require 'classes/sub_app'
 
 class TestApp < Ronin::Web::Server::Base
 
