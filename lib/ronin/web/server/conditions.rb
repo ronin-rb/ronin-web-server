@@ -19,8 +19,6 @@
 # along with ronin-web-server.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/target'
-
 require 'ipaddr'
 
 module Ronin
@@ -88,22 +86,6 @@ module Ronin
           end
 
           alias referrer referer
-
-          #
-          # Condition to match requests sent by an IP Address targeted by a
-          # Campaign.
-          #
-          # @param [String] name
-          #   The name of the Campaign to match IP Addresses against.
-          #
-          def campaign(name)
-            condition do
-              Target.first(
-                'campaign.name'   => name,
-                'address.address' => request.ip
-              )
-            end
-          end
         end
       end
     end
