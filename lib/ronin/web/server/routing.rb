@@ -19,7 +19,7 @@
 # along with ronin-web-server.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/web/proxy'
+require 'ronin/web/server/proxy'
 
 require 'rack/file'
 require 'rack/directory'
