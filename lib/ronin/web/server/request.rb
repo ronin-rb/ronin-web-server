@@ -41,7 +41,7 @@ module Ronin
         #
         # @api semipublic
         #
-        def address
+        def ip_with_port
           if env.has_key?('REMOTE_PORT')
             "#{ip}:#{env['REMOTE_PORT']}"
           else

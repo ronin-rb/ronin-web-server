@@ -6,7 +6,7 @@ describe Ronin::Web::Server::Request do
 
   subject { described_class.new(env) }
 
-  describe "#address" do
+  describe "#ip_with_port" do
     let(:ip) { '127.0.0.1' }
 
     context "when REMOTE_PORT is set" do
@@ -16,7 +16,7 @@ describe Ronin::Web::Server::Request do
       end
 
       it "must return REMOTE_ADDR:REMOTE_PORT" do
-        expect(subject.address).to eq("#{ip}:#{port}")
+        expect(subject.ip_with_port).to eq("#{ip}:#{port}")
       end
     end
 
@@ -26,7 +26,7 @@ describe Ronin::Web::Server::Request do
       end
 
       it "must return the REMOTE_ADDR" do
-        expect(subject.address).to eq("#{ip}")
+        expect(subject.ip_with_port).to eq("#{ip}")
       end
     end
   end
