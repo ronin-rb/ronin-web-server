@@ -40,24 +40,24 @@ module Ronin
       #
       # ## Routing Methods
       #
-      # * {Helpers::ClassMethods#any any}: registers a route that responds to
+      # * {Routing::ClassMethods#any any}: registers a route that responds to
       #   `GET`, `POST`, `PUT`, `PATCH`, `DELETE` and `OPTIONS` requests.
-      # * {Helpers::ClassMethods#default default}: registers the default route.
-      # * {Helpers::ClassMethods#file file}: mounts a file at the given path.
+      # * {Routing::ClassMethods#default default}: registers the default route.
+      # * {Routing::ClassMethods#file file}: mounts a file at the given path.
       #   a given file.
-      # * {Helpers::ClassMethods#files files}: monts multiple files.
+      # * {Routing::ClassMethods#files files}: monts multiple files.
       #   given paths.
-      # * {Helpers::ClassMethods#directory directory}: mounts a directory at
+      # * {Routing::ClassMethods#directory directory}: mounts a directory at
       #   the given path.
-      # * {Helpers::ClassMethods#directories directories}: mounts multiple
+      # * {Routing::ClassMethods#directories directories}: mounts multiple
       #   directories.
-      # * {Helpers::ClassMethods#public_dir public_dir}: mounts a directory
+      # * {Routing::ClassMethods#public_dir public_dir}: mounts a directory
       #   at the root.
-      # * {Helpers::ClassMethods#host host}: mounts a Rack app for the given
+      # * {Routing::ClassMethods#host host}: mounts a Rack app for the given
       #   vhost.
-      # * {Helpers::ClassMethods#map map}: mounts a Rack app at the given
+      # * {Routing::ClassMethods#map map}: mounts a Rack app at the given
       #   path.
-      # * {Helpers::ClassMethods#proxy proxy}: mounts a {Proxy} at an optional
+      # * {Routing::ClassMethods#proxy proxy}: mounts a {Proxy} at an optional
       #   path.
       #
       # ## Helper Methods
