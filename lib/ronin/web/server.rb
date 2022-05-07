@@ -50,7 +50,7 @@ module Ronin
     #
     # @api public
     #
-    def Web.server(options={},&block)
+    def self.server(options={},&block)
       unless class_variable_defined?('@@ronin_web_server')
         @@ronin_web_server = Server::App
         @@ronin_web_server.run!(options.merge(background: true))
