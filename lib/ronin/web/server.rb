@@ -51,13 +51,13 @@ module Ronin
     # @api public
     #
     def self.server(options={},&block)
-      unless class_variable_defined?('@@ronin_web_server')
-        @@ronin_web_server = Server::App
-        @@ronin_web_server.run!(options.merge(background: true))
+      unless @server
+        @server = Server::App
+        @server.run!(options.merge(background: true))
       end
 
-      @@ronin_web_server.class_eval(&block) if block
-      return @@ronin_web_server
+      @server.class_eval(&block) if block
+      return @server
     end
   end
 end
