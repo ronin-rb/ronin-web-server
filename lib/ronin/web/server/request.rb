@@ -36,9 +36,6 @@ module Ronin
         #
         # Returns the remote IP address and port for the request.
         #
-        # @param [Hash] env
-        #   The request env Hash.
-        #
         # @return [String]
         #   The IP address and port number.
         #
