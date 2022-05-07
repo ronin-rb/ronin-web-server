@@ -2,7 +2,9 @@ require 'spec_helper'
 require 'ronin/web/server/request'
 
 describe Ronin::Web::Server::Request do
-  it { expect(described_class).to be < Sinatra::Request }
+  it "must provide the same methods as Sinatra::Request" do
+    expect(described_class).to be < Sinatra::Request
+  end
 
   let(:env) { {} }
 
