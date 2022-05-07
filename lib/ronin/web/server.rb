@@ -21,4 +21,43 @@
 
 require 'ronin/web/server/base'
 require 'ronin/web/server/app'
-require 'ronin/web/server/web'
+
+module Ronin
+  module Web
+    #
+    # Returns the Ronin Web Server.
+    #
+    # @param [Hash] options
+    #   Additional options.
+    #
+    # @yield [server]
+    #   If a block is given, it will be passed the current web server.
+    #
+    # @yieldparam [Server::App]
+    #   The current web server class.
+    #
+    # @return [Server::App]
+    #   The current web server class.
+    #
+    # @example
+    #   Web.server do
+    #     get '/hello' do
+    #       'world'
+    #     end
+    #   end
+    #
+    # @see Server::Base.run!
+    #
+    # @api public
+    #
+    def Web.server(options={},&block)
+      unless class_variable_defined?('@@ronin_web_server')
+        @@ronin_web_server = Server::App
+        @@ronin_web_server.run!(options.merge(background: true))
+      end
+
+      @@ronin_web_server.class_eval(&block) if block
+      return @@ronin_web_server
+    end
+  end
+end
