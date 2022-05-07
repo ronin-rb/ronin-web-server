@@ -27,6 +27,11 @@ require 'rack/directory'
 module Ronin
   module Web
     module Server
+      #
+      # Adds additional routing class methods to {Base}.
+      #
+      # @api semipublic
+      #
       module Routing
         def self.included(base)
           base.extend ClassMethods
