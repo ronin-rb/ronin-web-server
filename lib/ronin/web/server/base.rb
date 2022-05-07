@@ -78,6 +78,31 @@ module Ronin
       # * {Conditions::ClassMethods#referer referer}: filters requests based on
       #   the `Referer` header.
       #
+      # ## Examples
+      #   
+      #   require 'ronin/web/server'
+      #   
+      #   class App < Ronin::Web::Server::Base
+      #   
+      #     # mount a file
+      #     file '/sitemap.xml', './files/sitemap.xml'
+      #
+      #     # mount a directory
+      #     directory '/downloads/', '/tmp/downloads/'
+      #   
+      #     get '/' do
+      #       # renders views/index.erb
+      #       erb :index
+      #     end
+      #   
+      #     get '/test' do
+      #       "raw text here"
+      #     end
+      #   
+      #   end
+      #   
+      #   App.run!
+      #
       class Base < Sinatra::Base
 
         include Server::Routing
