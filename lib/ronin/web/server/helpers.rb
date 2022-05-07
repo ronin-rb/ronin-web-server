@@ -45,8 +45,6 @@ module Ronin
         # @return [String]
         #   The MIME type for the path.
         #
-        # @since 0.3.0
-        #
         # @api public
         #
         def mime_type_for(path)
@@ -58,8 +56,6 @@ module Ronin
         #
         # @param [String] path
         #   The path to determine the `Content-Type` for.
-        #
-        # @since 0.3.0
         #
         # @api public
         #

@@ -120,8 +120,6 @@ module Ronin
         #   Specifies wether the server will run in the background or run
         #   in the foreground.
         #
-        # @since 0.2.0
-        #
         # @api public
         #
         def self.run!(options={})
@@ -160,8 +158,6 @@ module Ronin
         #
         # @param [String] handler_name
         #   The name of the handler.
-        #
-        # @since 0.3.0
         #
         # @api semipublic
         #

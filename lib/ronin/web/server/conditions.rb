@@ -29,8 +29,6 @@ module Ronin
       #
       # @api semipublic
       #
-      # @since 0.3.0
-      #
       module Conditions
         def self.included(base)
           base.extend ClassMethods

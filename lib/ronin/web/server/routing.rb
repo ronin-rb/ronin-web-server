@@ -50,8 +50,6 @@ module Ronin
           #     puts request.inspect
           #   end
           #
-          # @since 0.2.0
-          #
           # @api public
           #
           def any(path,conditions={},&block)
@@ -83,8 +81,6 @@ module Ronin
           #     }
           #   end
           #
-          # @since 0.2.0
-          #
           # @api public
           #
           def default(&block)
@@ -106,8 +102,6 @@ module Ronin
           #
           # @example
           #   file '/robots.txt', '/path/to/my_robots.txt'
-          #
-          # @since 0.3.0
           #
           # @api public
           #
@@ -133,8 +127,6 @@ module Ronin
           #     /\.exe$/   => 'trojan.exe'
           #   )
           #
-          # @since 0.3.0
-          #
           # @see #file
           #
           # @api public
@@ -159,8 +151,6 @@ module Ronin
           #
           # @example
           #   directory '/download/', '/tmp/files/'
-          #
-          # @since 0.2.0
           #
           # @api public
           #
@@ -188,8 +178,6 @@ module Ronin
           # @example
           #   directories '/downloads' => '/tmp/ronin_downloads'
           #
-          # @since 0.3.0
-          #
           # @see #directory
           #
           # @api public
@@ -212,8 +200,6 @@ module Ronin
           # @example
           #   public_dir 'path/to/another/public'
           #
-          # @since 0.2.0
-          #
           # @api public
           #
           def public_dir(path,conditions={})
@@ -232,8 +218,6 @@ module Ronin
           #
           # @param [Hash] conditions
           #   Additional routing conditions.
-          #
-          # @since 0.2.0
           #
           # @api public
           #
@@ -258,8 +242,6 @@ module Ronin
           #
           # @example
           #   map '/subapp/', SubApp
-          #
-          # @since 0.3.0
           #
           # @api public
           #
@@ -292,8 +274,6 @@ module Ronin
           #   end
           #
           # @see Proxy
-          #
-          # @since 0.2.0
           #
           # @api public
           #

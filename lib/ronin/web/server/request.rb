@@ -42,8 +42,6 @@ module Ronin
         # @return [String]
         #   The IP address and port number.
         #
-        # @since 0.3.0
-        #
         # @api semipublic
         #
         def address
@@ -59,8 +57,6 @@ module Ronin
         #
         # @return [Hash{String => String}]
         #   The HTTP Headers of the request.
-        #
-        # @since 0.3.0
         #
         # @api public
         #
