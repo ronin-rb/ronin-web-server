@@ -2,6 +2,8 @@ require 'spec_helper'
 require 'ronin/web/server/request'
 
 describe Ronin::Web::Server::Request do
+  it { expect(described_class).to be < Sinatra::Request }
+
   let(:env) { {} }
 
   subject { described_class.new(env) }
