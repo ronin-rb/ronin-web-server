@@ -77,8 +77,6 @@ module Ronin
       #   `Host` header.
       # * {Conditions::ClassMethods#referer referer}: filters requests based on
       #   the `Referer` header.
-      # * {Conditions::ClassMethods#campaign campaign}: filters requests based
-      #   on whether their IP address is targeted by a Campaign.
       #
       class Base < Sinatra::Base
 
