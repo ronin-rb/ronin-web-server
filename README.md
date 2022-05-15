@@ -18,35 +18,41 @@ security research and development.
 
 ## Features
 
-* Provides a [Sinatra][sinatra] based web server base class.
-* Provides a [Rack][rack] compatible proxy server base class.
+* Provides a [Sinatra][sinatra] based
+  {Ronin::Web::Server::Base web server base class}.
+* Provides a [Rack][rack] compatible {Ronin::Web::Server::Proxy proxy server}.
 
 ## Examples
 
-    require 'ronin/web/server'
-    
-    class App < Ronin::Web::Server::Base
-    
-      # mount a file
-      file '/sitemap.xml', './files/sitemap.xml'
-    
-      # mount a directory
-      directory '/downloads/', '/tmp/downloads/'
-    
-      get '/' do
-        # renders views/index.erb
-        erb :index
-      end
-    
-      get '/test' do
-        "raw string here"
-      end
-    
-    end
-    
-    App.run!
+Create and run a simple web app:
 
-See [Sinatra's Intro][1] for additional documentation.
+```ruby
+require 'ronin/web/server'
+
+class App < Ronin::Web::Server::Base
+
+  # mount a file
+  file '/sitemap.xml', './files/sitemap.xml'
+
+  # mount a directory
+  directory '/downloads/', '/tmp/downloads/'
+
+  get '/' do
+    # renders views/index.erb
+    erb :index
+  end
+
+  get '/test' do
+    "raw string here"
+  end
+
+end
+
+App.run!
+```
+
+**Note**: See {Ronin::Web::Server::Base} and [Sinatra's Intro][1] for additional
+documentation.
 
 [1]: http://sinatrarb.com/intro.html
 
@@ -60,11 +66,15 @@ See [Sinatra's Intro][1] for additional documentation.
 
 ## Install
 
-    $ gem install ronin-web-server
+```shell
+$ gem install ronin-web-server
+```
 
 ### Gemfile
 
-    gem 'ronin-web-server', '~> 0.1'
+```shell
+gem 'ronin-web-server', '~> 0.1'
+```
 
 ## Development
 
