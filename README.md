@@ -62,7 +62,7 @@ documentation.
 * [webrick] ~> 1.0
 * [rack] ~> 1.3
 * [sinatra] ~> 1.3
-* [ronin-support] ~> 0.4
+* [ronin-support] ~> 1.0
 
 ## Install
 
