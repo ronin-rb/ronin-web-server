@@ -58,7 +58,7 @@ documentation.
 
 ## Requirements
 
-* [Ruby] >= 2.7.0
+* [Ruby] >= 3.0.0
 * [webrick] ~> 1.0
 * [rack] ~> 1.3
 * [sinatra] ~> 1.3
