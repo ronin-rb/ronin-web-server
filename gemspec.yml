@@ -22,6 +22,7 @@ required_ruby_version: ">= 3.0.0"
 dependencies:
   webrick: ~> 1.0
   rack: ~> 1.3
+  rack-user_agent: ~> 0.5
   sinatra: ~> 1.3
   # Ronin dependencies:
   ronin-support: ~> 1.0

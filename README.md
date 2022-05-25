@@ -61,6 +61,7 @@ documentation.
 * [Ruby] >= 3.0.0
 * [webrick] ~> 1.0
 * [rack] ~> 1.3
+* [rack-user_agent] ~> 0.5
 * [sinatra] ~> 1.3
 * [ronin-support] ~> 1.0
 
@@ -111,5 +112,6 @@ along with ronin-web-server.  If not, see <https://www.gnu.org/licenses/>.
 [Ruby]: https://www.ruby-lang.org
 [webrick]: https://github.com/ruby/webrick#readme
 [rack]: https://github.com/rack/rack#readme
+[rack-user_agent]: https://github.com/k0kubun/rack-user_agent#readme
 [sinatra]: https://github.com/sinatra/sinatra#readme
 [ronin-support]: https://github.com/ronin-rb/ronin-support#readme
