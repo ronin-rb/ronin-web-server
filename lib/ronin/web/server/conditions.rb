@@ -40,47 +40,31 @@ module Ronin
           #
           # Condition to match the IP Address that sent the request.
           #
-          # @param [IPAddr, String] ip
+          # @param [IPAddr, String, Proc, #===] ip
           #   The IP address or range of addresses to match against.
           #
           def ip_address(ip)
-            ip = IPAddr.new(ip.to_s) unless ip.kind_of?(IPAddr)
-
-            condition { ip.include?(request.ip) }
+            condition { ip === request.ip }
           end
 
           #
           # Condition for matching the `Host` header.
           #
-          # @param [Regexp, String] pattern
+          # @param [Regexp, String, Proc, #===] pattern
           #   The host to match against.
           #
           def host(pattern)
-            case host
-            when Regexp
-              condition { request.host =~ pattern }
-            else
-              pattern = pattern.to_s
-
-              condition { request.host == pattern }
-            end
+            condition { pattern === request.host }
           end
 
           #
           # Condition to match the `Referer` header of the request.
           #
-          # @param [Regexp, String] pattern
+          # @param [Regexp, String, Proc, #===] pattern
           #   Regular expression or exact `Referer` header to match against.
           #
           def referer(pattern)
-            case pattern
-            when Regexp
-              condition { request.referer =~ pattern }
-            else
-              pattern = pattern.to_s
-
-              condition { request.referer == pattern }
-            end
+            condition { pattern === request.referer }
           end
 
           alias referrer referer
