@@ -127,7 +127,7 @@ module Ronin
           # Condition to match the browser name from the `User-Agent` header of
           # the request.
           #
-          # @param [Regexp, String, Proc, #===] matcher
+          # @param [:chrome, :firefox, Regexp, String, Proc, #===] matcher
           #   Regular expression, exact String, Proc, or any other object which
           #   defines an `#===` method.
           #
@@ -141,10 +141,27 @@ module Ronin
           #     # ...
           #   end
           #
+          # @example Match all Chrome browsers:
+          #   get '/path', browser: :chrome do
+          #     # ...
+          #   end
+          #
+          # @example Match all Firefox browsers:
+          #   get '/path', browser: :firefox do
+          #     # ...
+          #   end
+          #
           def browser(matcher)
-            condition do
-              if (browser = request.browser)
-                matcher === browser
+            case matcher
+            when :chrome
+              condition { request.browser == 'Chrome' }
+            when :firefox
+              condition { request.browser == 'Firefox' }
+            else
+              condition do
+                if (browser = request.browser)
+                  matcher === browser
+                end
               end
             end
           end
@@ -179,12 +196,12 @@ module Ronin
           #   defines an `#===` method.
           #
           # @example Match an exact version of Chrome:
-          #   get '/path', browser: 'Chrome', browser_version: '99.100.4844.27' do
+          #   get '/path', browser: :chrome, browser_version: '99.100.4844.27' do
           #     # ...
           #   end
           #
           # @example Match all Chrome versions in the 99.x version family:
-          #   get '/path', browser: 'Chrome', browser_version: /^99\./ do
+          #   get '/path', browser: :chrome, browser_version: /^99\./ do
           #     # ...
           #   end
           #
