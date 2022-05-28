@@ -64,7 +64,11 @@ module Ronin
           #   Regular expression or exact `Referer` header to match against.
           #
           def referer(pattern)
-            condition { pattern === request.referer }
+            condition do
+              if (referer = request.referer)
+                pattern === request.referer
+              end
+            end
           end
 
           alias referrer referer
