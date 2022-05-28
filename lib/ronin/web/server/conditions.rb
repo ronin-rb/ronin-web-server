@@ -159,14 +159,21 @@ module Ronin
           # Condition to match the OS from the `User-Agent` header of the
           # request.
           #
-          # @param [Regexp, String, Proc, #===] matcher
+          # @param [:android, :ios, Regexp, String, Proc, #===] matcher
           #   Regular expression, exact String, Proc, or any other object which
           #   defines an `#===` method.
           #
           def os(matcher)
-            condition do
-              if (os = request.os)
-                matcher === os
+            case matcher
+            when :android
+              condition { request.from_android_os? }
+            when :ios
+              condition { request.from_ios? }
+            else
+              condition do
+                if (os = request.os)
+                  matcher === os
+                end
               end
             end
           end
