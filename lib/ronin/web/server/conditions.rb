@@ -40,11 +40,11 @@ module Ronin
           #
           # Condition to match the IP Address that sent the request.
           #
-          # @param [IPAddr, String, Proc, #===] ip
+          # @param [IPAddr, String, Proc, #===] matcher
           #   The IP address or range of addresses to match against.
           #
-          def ip_address(ip)
-            condition { ip === request.ip }
+          def ip(matcher)
+            condition { matcher === request.ip }
           end
 
           #
