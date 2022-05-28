@@ -43,6 +43,16 @@ module Ronin
           # @param [IPAddr, String, Proc, #===] matcher
           #   The IP address or range of addresses to match against.
           #
+          # @example Only allow the exact IP:
+          #   get '/path', ip: '10.1.1.1' do
+          #     # ...
+          #   end
+          #
+          # @example Allow all IPs from the IP range:
+          #   get '/path', ip: IPAddr.new('10.1.1.1/24') do
+          #     # ...
+          #   end
+          #
           def ip(matcher)
             condition { matcher === request.ip }
           end
@@ -53,6 +63,16 @@ module Ronin
           # @param [Regexp, String, Proc, #===] matcher
           #   The host to match against.
           #
+          # @example Match the exact `Host` header:
+          #   get '/path', host: 'example.com' do
+          #     # ...
+          #   end
+          #
+          # @example Match any `Host` header ending in `.example.com`:
+          #   get '/path', host: /\.example\.com$/ do
+          #     # ...
+          #   end
+          #
           def host(matcher)
             condition { matcher === request.host }
           end
@@ -62,6 +82,16 @@ module Ronin
           #
           # @param [Regexp, String, Proc, #===] matcher
           #   Regular expression or exact `Referer` header to match against.
+          #
+          # @example Match the exact `Referer` URI:
+          #   get '/path', referer: 'https://example.com/signin' do
+          #     # ...
+          #   end
+          #
+          # @example Match any `Referer` URI matching the Regexp:
+          #   get '/path', referer: /^http:\/\// do
+          #     # ...
+          #   end
           #
           def referer(matcher)
             condition do
@@ -80,6 +110,11 @@ module Ronin
           #   Regular expression, exact String, Proc, or any other object which
           #   defines an `#===` method.
           #
+          # @example Match any `User-Agent` with `Intel Mac OSX` in it:
+          #   get '/path', user_agent: /Intel Mac OSX/ do
+          #     # ...
+          #   end
+          #
           def user_agent(matcher)
             condition do
               if (user_agent = request.user_agent)
@@ -95,6 +130,16 @@ module Ronin
           # @param [Regexp, String, Proc, #===] matcher
           #   Regular expression, exact String, Proc, or any other object which
           #   defines an `#===` method.
+          #
+          # @example Match the exact browser name:
+          #   get '/path', browser: "Foo" do
+          #     # ...
+          #   end
+          #
+          # @example Match any browser name matching the Regexp:
+          #   get '/path', browser: /googlebot/i do
+          #     # ...
+          #   end
           #
           def browser(matcher)
             condition do
@@ -112,6 +157,11 @@ module Ronin
           #   Regular expression, exact String, Proc, or any other object which
           #   defines an `#===` method.
           #
+          # @example Match the browser vendor:
+          #   get '/path', browser_vendor: 'Google' do
+          #     # ...
+          #   end
+          #
           def browser_vendor(matcher)
             condition do
               if (browser_vendor = request.browser_vendor)
@@ -127,6 +177,16 @@ module Ronin
           # @param [Regexp, String, Proc, #===] matcher
           #   Regular expression, exact String, Proc, or any other object which
           #   defines an `#===` method.
+          #
+          # @example Match an exact version of Chrome:
+          #   get '/path', browser: 'Chrome', browser_version: '99.100.4844.27' do
+          #     # ...
+          #   end
+          #
+          # @example Match all Chrome versions in the 99.x version family:
+          #   get '/path', browser: 'Chrome', browser_version: /^99\./ do
+          #     # ...
+          #   end
           #
           def browser_version(matcher)
             condition do
@@ -145,6 +205,16 @@ module Ronin
           #         Proc, #===] matcher
           #   Array of device type Symbols, the exact devicde type Symbol,
           #   Proc, or any other object which defines an `#===` method.
+          #
+          # @example Match a specific device type:
+          #   get '/path', device_type: :crawler do
+          #     halt 404
+          #   end
+          #
+          # @example Match multiple device types:
+          #   get '/path', device_type: [:smartphone, :appliance] do
+          #     # ...
+          #   end
           #
           def device_type(matcher)
             condition do
@@ -165,6 +235,36 @@ module Ronin
           #         Regexp, String, Proc, #===] matcher
           #   Regular expression, exact String, Proc, or any other object which
           #   defines an `#===` method.
+          #
+          # @example Match all Android devices:
+          #   get '/path', os: :android do
+          #     # ...
+          #   end
+          #
+          # @example Match all iOS devices:
+          #   get '/path', os: :ios do
+          #     # ...
+          #   end
+          #
+          # @example Match all Linux systems:
+          #   get '/path', os: :linux do
+          #     # ...
+          #   end
+          #
+          # @example Match all Windows systems:
+          #   get '/path', os: :windows do
+          #     # ...
+          #   end
+          #
+          # @example Match a specific OS:
+          #   get '/path', os: 'Windows 10' do
+          #     # ...
+          #   end
+          #
+          # @example Match any OS that matches the Regexp:
+          #   get '/path', os: /^Windows (?:7|8|10)/ do
+          #     # ...
+          #   end
           #
           def os(matcher)
             case matcher
@@ -196,6 +296,16 @@ module Ronin
           # @param [Regexp, String, Proc, #===] matcher
           #   Regular expression, exact String, Proc, or any other object which
           #   defines an `#===` method.
+          #
+          # @example Match a specific Android OS version:
+          #   get '/path', os: :android, os_version: '8.1.0' do
+          #     # ...
+          #   end
+          #
+          # @example Match all Android OS versions that match a Regexp:
+          #   get '/path', os: :android, os_version: /^8\.1\./ do
+          #     # ...
+          #   end
           #
           def os_version(matcher)
             condition do
