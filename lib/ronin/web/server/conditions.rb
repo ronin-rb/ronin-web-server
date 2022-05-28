@@ -161,7 +161,8 @@ module Ronin
           # Condition to match the OS from the `User-Agent` header of the
           # request.
           #
-          # @param [:android, :ios, Regexp, String, Proc, #===] matcher
+          # @param [:android, :ios, :linux, :windows,
+          #         Regexp, String, Proc, #===] matcher
           #   Regular expression, exact String, Proc, or any other object which
           #   defines an `#===` method.
           #
@@ -171,6 +172,14 @@ module Ronin
               condition { request.from_android_os? }
             when :ios
               condition { request.from_ios? }
+            when :linux
+              condition { request.os == 'Linux' }
+            when :windows
+              condition do
+                if (os = request.os)
+                  request.os.start_with?('Windows')
+                end
+              end
             else
               condition do
                 if (os = request.os)
