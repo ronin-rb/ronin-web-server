@@ -85,6 +85,8 @@ module Ronin
       #   requests based on the browser version within the `User-Agent` header.
       # * {Conditions::ClassMethods#device_type device_type}: filters requests
       #   based on the device type within the `User-Agent` header.
+      # * {Conditions::ClassMethods#os os}: filters requests based on the OS
+      #   within the `User-Agent` header.
       #
       # ## Examples
       #   
