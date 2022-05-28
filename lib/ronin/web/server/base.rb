@@ -28,6 +28,7 @@ require 'ronin/web/server/conditions'
 require 'thread'
 require 'rack'
 require 'sinatra/base'
+require 'rack/user_agent'
 
 module Ronin
   module Web
@@ -126,6 +127,8 @@ module Ronin
 
         # Default port to run the Web Server on
         DEFAULT_PORT = 8000
+
+        use Rack::UserAgent
 
         set :host, DEFAULT_HOST
         set :port, DEFAULT_PORT
