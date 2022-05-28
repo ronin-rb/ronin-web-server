@@ -87,6 +87,8 @@ module Ronin
       #   based on the device type within the `User-Agent` header.
       # * {Conditions::ClassMethods#os os}: filters requests based on the OS
       #   within the `User-Agent` header.
+      # * {Conditions::ClassMethods#os_version os_version}: filters requests
+      #   based on the OS version within the `User-Agent` header.
       #
       # ## Examples
       #   

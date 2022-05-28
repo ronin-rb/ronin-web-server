@@ -170,6 +170,22 @@ module Ronin
               end
             end
           end
+
+          #
+          # Condition to match the OS version from the `User-Agent` header of
+          # the request.
+          #
+          # @param [Regexp, String, Proc, #===] matcher
+          #   Regular expression, exact String, Proc, or any other object which
+          #   defines an `#===` method.
+          #
+          def os_version(matcher)
+            condition do
+              if (os_version = request.os_version)
+                matcher === os_version
+              end
+            end
+          end
         end
       end
     end
