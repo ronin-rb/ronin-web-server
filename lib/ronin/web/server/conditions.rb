@@ -140,7 +140,9 @@ module Ronin
           # Condition to match the device type of the `User-Agent` header of
           # the request.
           #
-          # @param [Array<Symbol>, Symbol, Proc, #===] matcher
+          # @param [Array<:pc, :smartphone, :appliance, :crawler>,
+          #         :pc, :smartphone, :appliance, :crawler,
+          #         Proc, #===] matcher
           #   Array of device type Symbols, the exact devicde type Symbol,
           #   Proc, or any other object which defines an `#===` method.
           #
