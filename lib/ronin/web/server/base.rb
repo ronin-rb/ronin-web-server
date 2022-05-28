@@ -77,6 +77,8 @@ module Ronin
       #   `Host` header.
       # * {Conditions::ClassMethods#referer referer}: filters requests based on
       #   the `Referer` header.
+      # * {Conditions::ClassMethods#user_agent user_agent}: filters requests
+      #   based on the `User-Agent` header.
       #
       # ## Examples
       #   

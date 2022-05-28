@@ -72,6 +72,21 @@ module Ronin
           end
 
           alias referrer referer
+
+          #
+          # Condition to match the `User-Agent` header of the request.
+          #
+          # @param [Regexp, String, Proc, #===] matcher
+          #   Regular expression, exact String, Proc, or any other object which
+          #   defines an `#===` method.
+          #
+          def user_agent(matcher)
+            condition do
+              if (user_agent = request.user_agent)
+                matcher === user_agent
+              end
+            end
+          end
         end
       end
     end
