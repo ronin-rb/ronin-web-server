@@ -103,6 +103,22 @@ module Ronin
               end
             end
           end
+
+          #
+          # Condition to match the browser version from the `User-Agent` header
+          # of the request.
+          #
+          # @param [Regexp, String, Proc, #===] matcher
+          #   Regular expression, exact String, Proc, or any other object which
+          #   defines an `#===` method.
+          #
+          def browser_version(matcher)
+            condition do
+              if (browser_version = request.browser_version)
+                matcher === browser_version
+              end
+            end
+          end
         end
       end
     end
