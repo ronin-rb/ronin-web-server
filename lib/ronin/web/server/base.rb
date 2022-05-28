@@ -79,6 +79,8 @@ module Ronin
       #   the `Referer` header.
       # * {Conditions::ClassMethods#user_agent user_agent}: filters requests
       #   based on the `User-Agent` header.
+      # * {Conditions::ClassMethods#browser browser}: filters requests based on
+      #   the browser name within the `User-Agent` header.
       #
       # ## Examples
       #   

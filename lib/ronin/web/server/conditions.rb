@@ -87,6 +87,22 @@ module Ronin
               end
             end
           end
+
+          #
+          # Condition to match the browser name from the `User-Agent` header of
+          # the request.
+          #
+          # @param [Regexp, String, Proc, #===] matcher
+          #   Regular expression, exact String, Proc, or any other object which
+          #   defines an `#===` method.
+          #
+          def browser(matcher)
+            condition do
+              if (browser = request.browser)
+                matcher === browser
+              end
+            end
+          end
         end
       end
     end
