@@ -191,7 +191,8 @@ module Ronin
           # Condition to match the browser version from the `User-Agent` header
           # of the request.
           #
-          # @param [Regexp, String, Proc, #===] matcher
+          # @param [Array<String>, Set<String>,
+          #         Regexp, String, Proc, #===] matcher
           #   Regular expression, exact String, Proc, or any other object which
           #   defines an `#===` method.
           #
@@ -205,10 +206,26 @@ module Ronin
           #     # ...
           #   end
           #
+          # @example Match versions of Chrome with known vulnerabilities:
+          #   vuln_versions = File.readlines('chrome_versions.txt', chomp: true)
+          #   
+          #   get '/path', browser: :chrome, browser_version: vuln_versions do
+          #     # ...
+          #   end
+          #
           def browser_version(matcher)
-            condition do
-              if (browser_version = request.browser_version)
-                matcher === browser_version
+            case matcher
+            when Array, Set
+              condition do
+                if (browser_version = request.browser_version)
+                  matcher.include?(browser_version)
+                end
+              end
+            else
+              condition do
+                if (browser_version = request.browser_version)
+                  matcher === browser_version
+                end
               end
             end
           end
@@ -310,7 +327,8 @@ module Ronin
           # Condition to match the OS version from the `User-Agent` header of
           # the request.
           #
-          # @param [Regexp, String, Proc, #===] matcher
+          # @param [Array<String>, Set<String>,
+          #         Regexp, String, Proc, #===] matcher
           #   Regular expression, exact String, Proc, or any other object which
           #   defines an `#===` method.
           #
@@ -324,10 +342,26 @@ module Ronin
           #     # ...
           #   end
           #
+          # @example Match versions of Android with known vulnerabilities:
+          #   vuln_versions = File.readlines('android_versions.txt', chomp: true)
+          #   
+          #   get '/path', os: :android, os_version: vuln_versions do
+          #     # ...
+          #   end
+          #
           def os_version(matcher)
-            condition do
-              if (os_version = request.os_version)
-                matcher === os_version
+            case matcher
+            when Array, Set
+              condition do
+                if (os_version = request.os_version)
+                  matcher.include?(os_version)
+                end
+              end
+            else
+              condition do
+                if (os_version = request.os_version)
+                  matcher === os_version
+                end
               end
             end
           end
