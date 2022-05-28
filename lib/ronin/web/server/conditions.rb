@@ -50,23 +50,23 @@ module Ronin
           #
           # Condition for matching the `Host` header.
           #
-          # @param [Regexp, String, Proc, #===] pattern
+          # @param [Regexp, String, Proc, #===] matcher
           #   The host to match against.
           #
-          def host(pattern)
-            condition { pattern === request.host }
+          def host(matcher)
+            condition { matcher === request.host }
           end
 
           #
           # Condition to match the `Referer` header of the request.
           #
-          # @param [Regexp, String, Proc, #===] pattern
+          # @param [Regexp, String, Proc, #===] matcher
           #   Regular expression or exact `Referer` header to match against.
           #
-          def referer(pattern)
+          def referer(matcher)
             condition do
               if (referer = request.referer)
-                pattern === request.referer
+                matcher === request.referer
               end
             end
           end
