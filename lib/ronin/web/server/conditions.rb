@@ -38,22 +38,22 @@ module Ronin
           protected
 
           #
-          # Condition to match the IP Address that sent the request.
+          # Condition to match the client IP Address that sent the request.
           #
           # @param [IPAddr, String, Proc, #===] matcher
           #   The IP address or range of addresses to match against.
           #
           # @example Only allow the exact IP:
-          #   get '/path', ip: '10.1.1.1' do
+          #   get '/path', client_ip: '10.1.1.1' do
           #     # ...
           #   end
           #
           # @example Allow all IPs from the IP range:
-          #   get '/path', ip: IPAddr.new('10.1.1.1/24') do
+          #   get '/path', client_ip: IPAddr.new('10.1.1.1/24') do
           #     # ...
           #   end
           #
-          def ip(matcher)
+          def client_ip(matcher)
             condition { matcher === request.ip }
           end
 

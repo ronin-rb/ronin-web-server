@@ -72,8 +72,8 @@ module Ronin
       #
       # ## Routing Conditions
       #
-      # * {Conditions::ClassMethods#ip ip}: filters requests based on their IP
-      #   address.
+      # * {Conditions::ClassMethods#client_ip client_ip}: filters requests
+      #   based on their client IP address.
       # * {Conditions::ClassMethods#host host}: filters requests based on the
       #   `Host` header.
       # * {Conditions::ClassMethods#referer referer}: filters requests based on
