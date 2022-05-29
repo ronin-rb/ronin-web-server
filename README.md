@@ -20,7 +20,6 @@ security research and development.
 
 * Provides a [Sinatra][sinatra] based
   {Ronin::Web::Server::Base web server base class}.
-* Provides a [Rack][rack] compatible {Ronin::Web::Server::Proxy proxy server}.
 
 ## Examples
 

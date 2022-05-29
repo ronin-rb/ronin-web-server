@@ -19,8 +19,6 @@
 # along with ronin-web-server.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/web/server/proxy'
-
 require 'rack/file'
 require 'rack/directory'
 
@@ -254,38 +252,6 @@ module Ronin
             any("#{dir}/?*",conditions) do |sub_path|
               server.call(env.merge('PATH_INFO' => "/#{sub_path}"))
             end
-          end
-
-          #
-          # Proxies requests to a given path.
-          #
-          # @param [String] path
-          #   The path to proxy requests for.
-          #
-          # @param [Hash{Symbol => Object}] conditions
-          #   Additional routing conditions.
-          #
-          # @yield [proxy]
-          #   The block will be passed the new proxy instance.
-          #
-          # @yieldparam [Proxy] proxy
-          #   The new proxy to configure.
-          #
-          # @example
-          #   proxy '/login.php' do |proxy|
-          #     proxy.on_response do |response|
-          #       response.body.gsub(/https/,'http')
-          #     end
-          #   end
-          #
-          # @see Proxy
-          #
-          # @api public
-          #
-          def proxy(path='*',conditions={},&block)
-            proxy = Proxy.new(&block)
-
-            any(path,conditions) { proxy.call(env) }
           end
         end
       end

@@ -58,8 +58,6 @@ module Ronin
       #   vhost.
       # * {Routing::ClassMethods#map map}: mounts a Rack app at the given
       #   path.
-      # * {Routing::ClassMethods#proxy proxy}: mounts a {Proxy} at an optional
-      #   path.
       #
       # ## Helper Methods
       #
