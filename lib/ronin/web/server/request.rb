@@ -33,6 +33,8 @@ module Ronin
       #
       class Request < Sinatra::Request
 
+        alias client_ip ip
+
         #
         # Returns the remote IP address and port for the request.
         #
