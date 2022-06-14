@@ -19,8 +19,6 @@
 # along with ronin-web-server.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/support/network/http'
-
 require 'sinatra/base'
 
 module Ronin
@@ -64,8 +62,8 @@ module Ronin
 
           env.each do |name,value|
             if name =~ /^HTTP_/
-              name        = name.sub('HTTP_','')
-              header_name = Support::Network::HTTP.header_name(name)
+              header_name = name.sub('HTTP_','')
+              header_name = header_name.split('_').map(&:capitalize).join('-')
 
               headers[header_name] = value
             end
