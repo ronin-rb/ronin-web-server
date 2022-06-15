@@ -62,8 +62,9 @@ module Ronin
 
           env.each do |name,value|
             if name =~ /^HTTP_/
-              header_name = name.sub('HTTP_','')
-              header_name = header_name.split('_').map(&:capitalize).join('-')
+              header_words = name[5..].split('_')
+              header_words.each(&:capitalize!)
+              header_name = header_words.join('-')
 
               headers[header_name] = value
             end
