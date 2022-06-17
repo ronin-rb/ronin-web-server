@@ -46,7 +46,7 @@ module Ronin
       # * {Routing::ClassMethods#default default}: registers the default route.
       # * {Routing::ClassMethods#file file}: mounts a file at the given path.
       #   a given file.
-      # * {Routing::ClassMethods#files files}: mounts multiple files.
+      # * {Routing::ClassMethods#files files}: mounts multiple files to the
       #   given paths.
       # * {Routing::ClassMethods#directory directory}: mounts a directory at
       #   the given path.
