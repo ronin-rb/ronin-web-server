@@ -44,6 +44,10 @@ module Ronin
       # * {Routing::ClassMethods#any any}: registers a route that responds to
       #   `GET`, `POST`, `PUT`, `PATCH`, `DELETE` and `OPTIONS` requests.
       # * {Routing::ClassMethods#default default}: registers the default route.
+      # * {Routing::ClassMethods#basic_auth basic_auth}: enables Basic-Auth
+      #   authentication for the whole app.
+      # * {Routing::ClassMethods#redirect redirect}: adds a route that simply
+      #   redirects to another URL.
       # * {Routing::ClassMethods#file file}: mounts a file at the given path.
       #   a given file.
       # * {Routing::ClassMethods#files files}: mounts multiple files to the
@@ -72,6 +76,12 @@ module Ronin
       #
       # * {Conditions::ClassMethods#client_ip client_ip}: filters requests
       #   based on their client IP address.
+      # * {Conditions::ClassMethods#asn asn}: filters requests by the client
+      #   IP's ASN number.
+      # * {Conditions::ClassMethods#country_code country_code}: filters requests
+      #   by the client IP's ASN country code.
+      # * {Conditions::ClassMethods#asn_name asn_name}: filters requests by the
+      #   client IP's ASN company/ISP name.
       # * {Conditions::ClassMethods#host host}: filters requests based on the
       #   `Host` header.
       # * {Conditions::ClassMethods#referer referer}: filters requests based on
