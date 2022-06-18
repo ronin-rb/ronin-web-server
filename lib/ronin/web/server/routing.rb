@@ -121,6 +121,9 @@ module Ronin
           # @param [String] url
           #   The URL to redirect to.
           #
+          # @example
+          #   redirect '/path', 'https://example.com/'
+          #
           # @api public
           #
           def redirect(path,url)
