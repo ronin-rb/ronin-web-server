@@ -92,6 +92,27 @@ module Ronin
           end
 
           #
+          # Enables Basic-Auth authentication for the entire app.
+          #
+          # @param [String] auth_user
+          #   The desired username.
+          #
+          # @param [String] auth_password
+          #   The desired password
+          #
+          # @param [String] realm
+          #   The "realm" message to display in the Basic-Auth dialog.
+          #
+          # @example
+          #   basic_auth 'admin', 's3cr3t'
+          #
+          def basic_auth(auth_user,auth_password, realm: 'Restricted')
+            use Rack::Auth::Basic, realm do |user,password|
+              user == auth_user && passwrd == auth_password
+            end
+          end
+
+          #
           # Sets up a 302 Redirect at the given path.
           #
           # @param [String] path
