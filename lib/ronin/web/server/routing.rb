@@ -92,6 +92,21 @@ module Ronin
           end
 
           #
+          # Sets up a 302 Redirect at the given path.
+          #
+          # @param [String] path
+          #   The path  the web server will respond to.
+          #
+          # @param [String] url
+          #   The URL to redirect to.
+          #
+          # @api public
+          #
+          def redirect(path,url)
+            get(path) { redirect(url) }
+          end
+
+          #
           # Hosts the contents of a file.
           #
           # @param [String, Regexp] remote_path
