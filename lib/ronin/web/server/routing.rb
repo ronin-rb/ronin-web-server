@@ -106,6 +106,8 @@ module Ronin
           # @example
           #   basic_auth 'admin', 's3cr3t'
           #
+          # @api public
+          #
           def basic_auth(auth_user,auth_password, realm: 'Restricted')
             use Rack::Auth::Basic, realm do |user,password|
               user == auth_user && passwrd == auth_password
