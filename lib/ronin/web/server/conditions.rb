@@ -19,6 +19,8 @@
 # along with ronin-web-server.  If not, see <https://www.gnu.org/licenses/>.
 #
 
+require 'ronin/support/network/asn'
+
 require 'ipaddr'
 
 module Ronin
@@ -55,6 +57,65 @@ module Ronin
           #
           def client_ip(matcher)
             condition { matcher === request.ip }
+          end
+
+          #
+          # Condition to match the AS number of the client's IP address.
+          #
+          # @param [Integer] number
+          #   The AS number to match.
+          #
+          # @example
+          #   get '/path', asn: 13335 do
+          #     # ...
+          #   end
+          #
+          def asn(number)
+            condition do
+              if (record = Support::Network::ASN.query(request.ip))
+                record.number == number
+              end
+            end
+          end
+
+          #
+          # Condition to match the country code of the ASN information for the
+          # client's IP address.
+          #
+          # @param [String] code
+          #   The two letter country code to match for.
+          #
+          # @example
+          #   get '/path', country_code: 'US' do
+          #     # ...
+          #   end
+          #
+          def country_code(code)
+            condition do
+              if (record = Support::Network::ASN.query(request.ip))
+                record.country_code == country_code
+              end
+            end
+          end
+
+          #
+          # Condition to match the company/ISP name of the ASN information for
+          # the client's IP address.
+          #
+          # @param [String] name
+          #   The name of the company/ISP that the ASN is assigned to.
+          #
+          # @example
+          #   get '/path', asn_name: 'CLOUDFLARENET' do
+          #     # ...
+          #   end
+          #
+          def asn_name(name)
+            condition do
+              if (record = Support::Network::ASN.query(request.ip))
+                record.name == name
+              end
+            end
           end
 
           #
