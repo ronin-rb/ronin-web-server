@@ -285,11 +285,11 @@ module Ronin
           #   Additional routing conditions.
           #
           # @example
-          #   map '/subapp/', SubApp
+          #   mount '/subapp/', SubApp
           #
           # @api public
           #
-          def map(dir,app,conditions={})
+          def mount(dir,app,conditions={})
             any("#{dir}/?*",conditions) do |sub_path|
               app.call(env.merge('PATH_INFO' => "/#{sub_path}"))
             end
