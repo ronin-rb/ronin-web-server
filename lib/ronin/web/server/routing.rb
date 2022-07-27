@@ -257,7 +257,7 @@ module Ronin
           # @param [Regexp, String] host
           #   The host name to match against.
           #
-          # @param [#call] server
+          # @param [#call] app
           #   The Rack application to route the requests to.
           #
           # @param [Hash] conditions
@@ -265,9 +265,9 @@ module Ronin
           #
           # @api public
           #
-          def host(host,server,conditions={})
+          def host(host,app,conditions={})
             any('*',conditions.merge(host: host)) do
-              server.call(env)
+              app.call(env)
             end
           end
 
@@ -278,7 +278,7 @@ module Ronin
           # @param [String] dir
           #   The directory that requests for will be routed from.
           #
-          # @param [#call] server
+          # @param [#call] app
           #   The Rack application to route requests to.
           #
           # @param [Hash{Symbol => Object}] conditions
@@ -289,9 +289,9 @@ module Ronin
           #
           # @api public
           #
-          def map(dir,server,conditions={})
+          def map(dir,app,conditions={})
             any("#{dir}/?*",conditions) do |sub_path|
-              server.call(env.merge('PATH_INFO' => "/#{sub_path}"))
+              app.call(env.merge('PATH_INFO' => "/#{sub_path}"))
             end
           end
         end
