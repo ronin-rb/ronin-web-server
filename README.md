@@ -31,7 +31,7 @@ security research and development.
   * `directories` - mounts multiple local directories to the given path(s).
   * `public_dir` - mounts the files/directories within the directory to the root
     of the app.
-  * `host` - routes all requests for the given host to another app.
+  * `vhost` - routes all requests for the given host to another app.
   * `mount` - routes all requests for a given directory to another app.
 * Supports additional routing conditions:
   * `client_ip` - matches the client IP Address that sent the request.

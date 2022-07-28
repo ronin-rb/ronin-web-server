@@ -265,7 +265,7 @@ module Ronin
           #
           # @api public
           #
-          def host(host,app,conditions={})
+          def vhost(host,app,conditions={})
             any('*',conditions.merge(host: host)) do
               app.call(env)
             end
