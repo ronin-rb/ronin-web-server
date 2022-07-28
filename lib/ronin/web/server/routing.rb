@@ -154,34 +154,6 @@ module Ronin
           end
 
           #
-          # Hosts the contents of files.
-          #
-          # @param [Hash{String,Regexp => String}] paths
-          #   The mapping of remote paths to local paths.
-          #
-          # @param [Hash{Symbol => Object}] conditions
-          #   Additional routing conditions.
-          #
-          # @example
-          #   files '/foo.txt' => 'foo.txt'
-          #
-          # @example
-          #   files(
-          #     '/foo.txt' => 'foo.txt'
-          #     /\.exe$/   => 'trojan.exe'
-          #   )
-          #
-          # @see #file
-          #
-          # @api public
-          #
-          def files(paths,conditions={})
-            paths.each do |remote_path,local_path|
-              file(remote_path,local_path,conditions)
-            end
-          end
-
-          #
           # Hosts the contents of the directory.
           #
           # @param [String] remote_path
@@ -207,28 +179,6 @@ module Ronin
               if response[0] == 200 then response
               else                       pass
               end
-            end
-          end
-
-          #
-          # Hosts the contents of directories.
-          #
-          # @param [Hash{String => String}] paths
-          #   The mapping of remote paths to local directories.
-          #
-          # @param [Hash{Symbol => Object}] conditions
-          #   Additional routing conditions.
-          #
-          # @example
-          #   directories '/downloads' => '/tmp/ronin_downloads'
-          #
-          # @see #directory
-          #
-          # @api public
-          #
-          def directories(paths,conditions={},&block)
-            paths.each do |remote_path,local_path|
-              directory(remote_path,local_path,conditions)
             end
           end
 

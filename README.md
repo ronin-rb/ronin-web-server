@@ -26,9 +26,7 @@ security research and development.
   * `basic_auth` - enables Basic-Auth for the app.
   * `redirect` - adds a redirect to a given URL for the given path.
   * `file` - mounts a local file to the given path.
-  * `files` - mounts multiple local files to the given path(s).
   * `directory` - mounts a local directory of files at the given path.
-  * `directories` - mounts multiple local directories to the given path(s).
   * `public_dir` - mounts the files/directories within the directory to the root
     of the app.
   * `vhost` - routes all requests for the given host to another app.
