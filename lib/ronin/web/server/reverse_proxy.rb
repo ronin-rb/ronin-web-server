@@ -95,10 +95,10 @@ module Ronin
         #   If the block accepts two arguments then both the request and the
         #   response objects will be yielded.
         #
-        # @yieldparam [Response] response
+        # @yieldparam [ReverseProxy::Response] response
         #   A response object.
         #
-        # @yieldparam [Request] request
+        # @yieldparam [ReverseProxy::Request] request
         #   A request object.
         #
         def on_response(&block)
@@ -111,7 +111,7 @@ module Ronin
         # @param [Hash{String => Object}] env
         #   The rack request env Hash.
         #
-        # @return [Response]
+        # @return [ReverseProxy::Response]
         #   The rack response.
         #
         def call(env)
@@ -164,10 +164,10 @@ module Ronin
         #
         # Reverse proxies the given request.
         #
-        # @param [Request] request
+        # @param [ReverseProxy::Request] request
         #   The incoming request to reverse proxy.
         #
-        # @return [Response]
+        # @return [ReverseProxy::Response]
         #   The reverse proxied response.
         #
         def reverse_proxy(request)
