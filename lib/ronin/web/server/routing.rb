@@ -31,6 +31,14 @@ module Ronin
       # @api semipublic
       #
       module Routing
+        #
+        # Adds {ClassMethods} to the class.
+        #
+        # @param [Class] base
+        #   The application base class that is including {Routing}.
+        #
+        # @api private
+        #
         def self.included(base)
           base.extend ClassMethods
         end
