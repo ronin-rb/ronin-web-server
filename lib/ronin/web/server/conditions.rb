@@ -44,6 +44,9 @@ module Ronin
           base.extend ClassMethods
         end
 
+        #
+        # Class methods to be added to the application base class.
+        #
         module ClassMethods
           protected
 
