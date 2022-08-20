@@ -220,6 +220,9 @@ module Ronin
         # @param [Integer] port
         #   The port to listen on.
         #
+        # @param [String] server
+        #   The Rack server to run the reverse proxy under.
+        #
         # @param [Hash{Symbol => Object}] rack_options
         #   Additional options to pass to [Rack::Server.new](https://rubydoc.info/gems/rack/Rack/Server#initialize-instance_method).
         #
