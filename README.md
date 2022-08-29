@@ -77,6 +77,35 @@ class App < Ronin::Web::Server::Base
     "raw string here"
   end
 
+  get '/exploit', asn: 13335 do
+    # route that only matches the AS13335 netblock
+  end
+
+  get '/exploit', asn_name: 'GOOGLE' do
+    # route that only matches GOOGLE netblocks
+  end
+
+  get '/exploit', country_code: 'US' do
+    # route that only matches US netblocks
+  end
+
+  get '/exploit', browser: :firefox do
+    # route that only matches firefox web browsers
+  end
+
+  get '/exploit', browser: :chrome, browser_version: /^99\./ do
+    # route that only matches chrome 99.X.Y.Z web browsers
+  end
+
+  get '/exploit', os: :ios, os_version: '15.6' do
+    # route that only matches iOS 15.6 devices
+  end
+
+  # catchall route
+  get '/exploit' do
+    "nothing to see here"
+  end
+
 end
 
 App.run!
