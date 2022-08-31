@@ -207,20 +207,20 @@ module Ronin
 
           alias referrer= referer=
 
-            #
-            # Changes the body of the request.
-            #
-            # @param [String] new_body
-            #   The new body for the request.
-            #
-            # @return [String]
-            #   The new body of the request.
-            #
-            # @api public
-            #
-            def body=(new_body)
-              @env['rack.input'] = new_body
-            end
+          #
+          # Changes the body of the request.
+          #
+          # @param [String] new_body
+          #   The new body for the request.
+          #
+          # @return [String]
+          #   The new body of the request.
+          #
+          # @api public
+          #
+          def body=(new_body)
+            @env['rack.input'] = new_body
+          end
 
         end
       end
