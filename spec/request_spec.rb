@@ -30,7 +30,7 @@ describe Ronin::Web::Server::Request do
       end
 
       it "must return the REMOTE_ADDR" do
-        expect(subject.ip_with_port).to eq("#{ip}")
+        expect(subject.ip_with_port).to eq(ip)
       end
     end
   end
