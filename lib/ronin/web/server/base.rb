@@ -23,7 +23,6 @@ require 'ronin/web/server/routing'
 require 'ronin/web/server/helpers'
 require 'ronin/web/server/conditions'
 
-require 'thread'
 require 'rack'
 require 'sinatra/base'
 require 'rack/user_agent'
