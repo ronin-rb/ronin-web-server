@@ -166,7 +166,7 @@ module Ronin
           def referer(matcher)
             condition do
               if (referer = request.referer)
-                matcher === request.referer
+                matcher === referer
               end
             end
           end
@@ -381,7 +381,7 @@ module Ronin
             when :windows
               condition do
                 if (os = request.os)
-                  request.os.start_with?('Windows')
+                  os.start_with?('Windows')
                 end
               end
             else

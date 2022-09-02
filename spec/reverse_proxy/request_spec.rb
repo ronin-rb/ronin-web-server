@@ -80,7 +80,7 @@ describe Ronin::Web::Server::ReverseProxy::Request do
 
   describe "#request_method=" do
     let(:request_method)     { 'GET' }
-    let(:new_request_method) { 'POST'}
+    let(:new_request_method) { 'POST' }
     let(:env) do
       {'REQUEST_METHOD' => request_method}
     end
@@ -94,7 +94,7 @@ describe Ronin::Web::Server::ReverseProxy::Request do
 
   describe "#query_string=" do
     let(:query_string)     { 'GET' }
-    let(:new_query_string) { 'POST'}
+    let(:new_query_string) { 'POST' }
     let(:env) do
       {'QUERY_STRING' => query_string}
     end

@@ -167,6 +167,7 @@ module Ronin
           handler      = detect_rack_handler
           handler_name = handler.name.gsub(/.*::/, '')
 
+          # rubocop:disable Lint/ShadowingOuterLocalVariable
           runner = lambda { |handler,server|
             begin
               handler.run(server,Host: bind, Port: port) do |server|
@@ -175,10 +176,11 @@ module Ronin
 
                 set :running, true
               end
-            rescue Errno::EADDRINUSE => e
-              $stderr.puts "ronin-web-server: address is already in use: #{bind}:#{port}"
+            rescue Errno::EADDRINUSE
+              warn "ronin-web-server: address is already in use: #{bind}:#{port}"
             end
           }
+          # rubocop:enable Lint/ShadowingOuterLocalVariable
 
           if options[:background]
             Thread.new(handler,self,&runner)
