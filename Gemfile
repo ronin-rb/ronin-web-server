@@ -12,21 +12,20 @@ gem 'ronin-support',  '~> 1.0', github: "ronin-rb/ronin-support",
 
 group :development do
   gem 'rake'
-  gem 'rubygems-tasks', '~> 0.2'
+  gem 'rubygems-tasks',  '~> 0.2'
 
-  gem 'rspec',          '~> 3.0'
-  gem 'simplecov',      '~> 0.20'
-  gem 'rack-test',      '~> 0.6'
-  gem 'webmock',        '~> 3.0'
+  gem 'rspec',           '~> 3.0'
+  gem 'simplecov',       '~> 0.20'
+  gem 'rack-test',       '~> 0.6'
+  gem 'webmock',         '~> 3.0'
 
-  gem 'kramdown',      '~> 2.0'
-  gem 'kramdown-man',  '~> 0.1'
+  gem 'kramdown',        '~> 2.0'
+  gem 'kramdown-man',    '~> 0.1'
 
-  gem 'redcarpet',      platform: :mri
-  gem 'yard',           '~> 0.9'
+  gem 'redcarpet',       platform: :mri
+  gem 'yard',            '~> 0.9'
   gem 'yard-spellcheck', require: false
 
-  gem 'dead_end', require: false
-
-  gem 'rubocop',  require: false
+  gem 'dead_end',       require: false
+  gem 'rubocop',        require: false
 end
