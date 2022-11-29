@@ -52,6 +52,8 @@ security research and development.
   * `os` - matches the OS from the `User-Agent` header of the request.
   * `os_version` - matches the OS version from the `User-Agent` header of the
     request.
+* Has 97% documentation coverage.
+* Has 85% test coverage.
 
 ## Examples
 
