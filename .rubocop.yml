@@ -30,6 +30,7 @@ Style/HashSyntax: { Enabled: false }
 Naming/BlockForwarding: { Enabled: false }
 Lint/ReturnInVoidContext: { Enabled: false }
 Gemspec/DeprecatedAttributeAssignment: { Enabled: false }
+Layout/EmptyLineAfterMagicComment: { Enabled: false }
 
 #
 # rules that are in flux
