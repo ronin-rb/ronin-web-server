@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # ronin-web-server - A custom Ruby web server based on Sinatra.
 #
