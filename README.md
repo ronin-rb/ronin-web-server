@@ -122,9 +122,9 @@ documentation.
 
 * [Ruby] >= 3.0.0
 * [webrick] ~> 1.0
-* [rack] ~> 1.3
+* [rack] ~> 2.2
 * [rack-user_agent] ~> 0.5
-* [sinatra] ~> 1.3
+* [sinatra] ~> 3.0
 * [ronin-support] ~> 1.0
 
 ## Install
