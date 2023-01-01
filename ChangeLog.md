@@ -3,6 +3,7 @@
 * Extracted and refactored from [ronin-web](https://github.com/ronin-rb/ronin-web/tree/v0.3.0.rc1).
 * Relicensed as LGPL-3.0.
 * Initial release:
+  * Requires `ruby` >= 3.0.0.
   * Provides a [Sinatra][sinatra] based
     {Ronin::Web::Server::Base web server base class}.
   * Supports additional routing helper methods:
