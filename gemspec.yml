@@ -25,7 +25,7 @@ dependencies:
   rack-user_agent: ~> 0.5
   sinatra: ~> 3.0
   # Ronin dependencies:
-  ronin-support: ~> 1.0
+  ronin-support: ~> 1.0.0.beta1
 
 development_dependencies:
   bundler: ~> 2.0
