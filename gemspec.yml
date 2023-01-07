@@ -14,7 +14,7 @@ metadata:
   documentation_uri: https://ronin-rb.dev/docs/ronin-web-server
   source_code_uri:   https://github.com/postmodern/ronin-web-server
   bug_tracker_uri:   https://github.com/postmodern/ronin-web-server/issues
-  changelog_uri:     https://github.com/postmodern/ronin-web-server/blob/master/ChangeLog.md
+  changelog_uri:     https://github.com/postmodern/ronin-web-server/blob/main/ChangeLog.md
   rubygems_mfa_required: 'true'
 
 required_ruby_version: ">= 3.0.0"
