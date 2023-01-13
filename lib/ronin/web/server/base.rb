@@ -160,52 +160,17 @@ module Ronin
         #   Specifies wether the server will run in the background or run
         #   in the foreground.
         #
+        # @raise [Errno::EADDRINUSE]
+        #   The port is already in use.
+        #
         # @api public
         #
-        def self.run!(options={})
-          set(options)
-
-          handler      = detect_rack_handler
-          handler_name = handler.name.gsub(/.*::/, '')
-
-          # rubocop:disable Lint/ShadowingOuterLocalVariable
-          runner = lambda { |handler,server|
-            begin
-              handler.run(server,Host: bind, Port: port) do |server|
-                trap(:INT)  { quit!(server,handler_name) }
-                trap(:TERM) { quit!(server,handler_name) }
-
-                set :running, true
-              end
-            rescue Errno::EADDRINUSE
-              warn "ronin-web-server: address is already in use: #{bind}:#{port}"
-            end
-          }
-          # rubocop:enable Lint/ShadowingOuterLocalVariable
-
+        def self.run!(options={},&block)
           if options[:background]
-            Thread.new(handler,self,&runner)
+            Thread.new(options) { |options| super(options) }
           else
-            runner.call(handler,self)
+            super(options,&block)
           end
-
-          return self
-        end
-
-        #
-        # Stops the web server.
-        #
-        # @param [#call] server
-        #   The Rack Handler server.
-        #
-        # @param [String] handler_name
-        #   The name of the handler.
-        #
-        # @api semipublic
-        #
-        def self.quit!(server,handler_name)
-          # Use thins' hard #stop! if available, otherwise just #stop
-          server.respond_to?(:stop!) ? server.stop! : server.stop
         end
 
       end
