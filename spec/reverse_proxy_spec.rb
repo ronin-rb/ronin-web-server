@@ -50,8 +50,13 @@ describe Ronin::Web::Server::ReverseProxy do
       )
     end
 
-    it "must return a #{described_class::Response} object" do
-      expect(subject.call(env)).to be_kind_of(described_class::Response)
+    it "must return a Rack response tuple (status, headers, body)" do
+      response = subject.call(env)
+
+      expect(response).to be_kind_of(Array)
+      expect(response[0]).to be_kind_of(Integer)
+      expect(response[1]).to be_kind_of(Hash)
+      expect(response[2]).to be_kind_of(Array)
     end
 
     it "must make an HTTP request for the requested Host header and path" do
@@ -61,15 +66,15 @@ describe Ronin::Web::Server::ReverseProxy do
     end
 
     it "must return all HTTP response headers in the respones object" do
-      response = subject.call(env)
+      status, headers, body = subject.call(env)
 
-      expect(response.headers).to include(http_response_headers)
+      expect(headers).to include(http_response_headers)
     end
 
     it "must default the response body to an empty String" do
-      response = subject.call(env)
+      status, headers, body = subject.call(env)
 
-      expect(response.body).to eq([''])
+      expect(body).to eq([''])
     end
 
     context "when the #on_request callback is set" do

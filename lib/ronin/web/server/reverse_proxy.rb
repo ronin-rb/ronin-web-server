@@ -110,8 +110,8 @@ module Ronin
         # @param [Hash{String => Object}] env
         #   The rack request env Hash.
         #
-        # @return [ReverseProxy::Response]
-        #   The rack response.
+        # @return [(Integer, Hash{String => String}, Array<String>)]
+        #   The rack response tuple (status, headers, body).
         #
         def call(env)
           request = Request.new(env)
@@ -127,7 +127,7 @@ module Ronin
             end
           end
 
-          return response
+          return [response.status, response.headers, response.body]
         end
 
         #
