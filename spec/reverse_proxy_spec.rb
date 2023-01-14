@@ -66,13 +66,13 @@ describe Ronin::Web::Server::ReverseProxy do
     end
 
     it "must return all HTTP response headers in the respones object" do
-      status, headers, body = subject.call(env)
+      _status, headers, _body = subject.call(env)
 
       expect(headers).to include(http_response_headers)
     end
 
     it "must default the response body to an empty String" do
-      status, headers, body = subject.call(env)
+      _status, _headers, body = subject.call(env)
 
       expect(body).to eq([''])
     end
