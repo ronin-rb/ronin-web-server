@@ -22,39 +22,67 @@ security research and development.
 * Provides a [Sinatra][sinatra] based
   {Ronin::Web::Server::Base web server base class}.
 * Supports additional routing helper methods:
-  * `any` - matches any HTTP request method.
-  * `default` - default response for the app.
-  * `basic_auth` - enables Basic-Auth for the app.
-  * `redirect` - adds a redirect to a given URL for the given path.
-  * `file` - mounts a local file to the given path.
-  * `directory` - mounts a local directory of files at the given path.
-  * `public_dir` - mounts the files/directories within the directory to the root
-    of the app.
-  * `vhost` - routes all requests for the given host to another app.
-  * `mount` - routes all requests for a given directory to another app.
+  * [any][docs-any] - matches any HTTP request method.
+  * [default][docs-default] - default response for the app.
+  * [basic_auth][docs-basic_auth] - enables Basic-Auth for the app.
+  * [redirect][docs-redirect] - adds a redirect to a given URL for the given
+    path.
+  * [file][docs-file] - mounts a local file to the given path.
+  * [directory][docs-directory] - mounts a local directory of files at the given
+    path.
+  * [public_dir][docs-public_dir] - mounts the files/directories within the
+    directory to the root of the app.
+  * [vhost][docs-vhost] - routes all requests for the given host to another app.
+  * [mount][docs-mount] - routes all requests for a given directory to another
+    app.
 * Supports additional routing conditions:
-  * `client_ip` - matches the client IP Address that sent the request.
-  * `asn` - matches the AS number of the client's IP address.
-  * `country_code` - matches the country code of the ASN information for the
-    client's IP address.
-  * `asn_name` - matches the company/ISP name of the ASN information for the
-    client's IP address.
-  * `host` - matches the `Host` header.
-  * `referer` - matches the `Referer` header of the request.
-  * `user_agent` - matches the `User-Agent` header of the request.
-  * `browser` - matches the browser name from the `User-Agent` header of the
+  * [client_ip][docs-client_ip] - matches the client IP Address that sent the
     request.
-  * `browser_vendor` - matches the browser vendor from the `User-Agent` header
-    of the request.
-  * `browser_version` - matches the browser version from the `User-Agent` header
-    of the request.
-  * `device_type` - matches the device type of the `User-Agent` header of the
+  * [asn][docs-asn] - matches the AS number of the client's IP address.
+  * [country_code][docs-country_code] - matches the country code of the ASN
+    information for the client's IP address.
+  * [asn_name][docs-asn_name] - matches the company/ISP name of the ASN
+    information for the client's IP address.
+  * [host][docs-host] - matches the `Host` header.
+  * [referer][docs-referer] - matches the `Referer` header of the request.
+  * [user_agent][docs-user_agent] - matches the `User-Agent` header of the
     request.
-  * `os` - matches the OS from the `User-Agent` header of the request.
-  * `os_version` - matches the OS version from the `User-Agent` header of the
-    request.
+  * [browser][docs-browser] - matches the browser name from the `User-Agent`
+    header of the request.
+  * [browser_vendor][docs-browser_vendor] - matches the browser vendor from the
+    `User-Agent` header of the request.
+  * [browser_version][docs-browser_version] - matches the browser version from
+    the `User-Agent` header of the request.
+  * [device_type][docs-device_type] - matches the device type of the
+    `User-Agent` header of the request.
+  * [os][docs-os] - matches the OS from the `User-Agent` header of the request.
+  * [os_version][docs-os_version] - matches the OS version from the `User-Agent`
+    header of the request.
 * Has 97% documentation coverage.
 * Has 85% test coverage.
+
+[docs-any]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Routing/ClassMethods.html#any-instance_method
+[docs-default]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Routing/ClassMethods.html#default-instance_method
+[docs-basic_auth]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Routing/ClassMethods.html#basic_auth-instance_method
+[docs-redirect]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Routing/ClassMethods.html#redirect-instance_method
+[docs-file]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Routing/ClassMethods.html#file-instance_method
+[docs-directory]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Routing/ClassMethods.html#directory-instance_method
+[docs-public_dir]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Routing/ClassMethods.html#public_dir-instance_method
+[docs-vhost]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Routing/ClassMethods.html#vhost-instance_method
+[docs-mount]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Routing/ClassMethods.html#mount-instance_method
+[docs-client_ip]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Conditions/ClassMethods.html#client_ip-instance_method
+[docs-asn]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Conditions/ClassMethods.html#asn-instance_method
+[docs-country_code]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Conditions/ClassMethods.html#country_code-instance_method
+[docs-asn_name]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Conditions/ClassMethods.html#asn_name-instance_method
+[docs-host]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Conditions/ClassMethods.html#host-instance_method
+[docs-referer]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Conditions/ClassMethods.html#referer-instance_method
+[docs-user_agent]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Conditions/ClassMethods.html#user_agent-instance_method
+[docs-browser]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Conditions/ClassMethods.html#browser-instance_method
+[docs-browser_vendor]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Conditions/ClassMethods.html#browser_vendor-instance_method
+[docs-browser_version]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Conditions/ClassMethods.html#browser_version-instance_method
+[docs-device_type]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Conditions/ClassMethods.html#device_type-instance_method
+[docs-os]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Conditions/ClassMethods.html#os-instance_method
+[docs-os_version]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Conditions/ClassMethods.html#os_version-instance_method
 
 ## Examples
 
