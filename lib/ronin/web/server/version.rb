@@ -22,7 +22,7 @@ module Ronin
   module Web
     module Server
       # ronin-web-server version
-      VERSION = '0.1.0.beta3'
+      VERSION = '0.1.0'
     end
   end
 end
