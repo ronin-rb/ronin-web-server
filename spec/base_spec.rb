@@ -11,6 +11,16 @@ describe Ronin::Web::Server::Base do
     self.app = TestApp
   end
 
+  describe "settings" do
+    it "must default the host to DEFAULT_HOST" do
+      expect(described_class.host).to eq(described_class::DEFAULT_HOST)
+    end
+
+    it "must default the port to DEFAULT_PORT" do
+      expect(described_class.port).to eq(described_class::DEFAULT_PORT)
+    end
+  end
+
   it "must still bind blocks to paths" do
     get '/tests/get'
 
