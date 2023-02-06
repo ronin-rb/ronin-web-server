@@ -120,7 +120,7 @@ module Ronin
           #
           def basic_auth(auth_user,auth_password, realm: 'Restricted')
             use Rack::Auth::Basic, realm do |user,password|
-              user == auth_user && passwrd == auth_password
+              user == auth_user && password == auth_password
             end
           end
 
