@@ -11,6 +11,18 @@ describe Ronin::Web::Server::Base do
     self.app = TestApp
   end
 
+  describe "DEFAULT_HOST" do
+    it "must equal '0.0.0.0'" do
+      expect(described_class::DEFAULT_HOST).to eq('0.0.0.0')
+    end
+  end
+
+  describe "DEFAULT_PORT" do
+    it "must equal 8000" do
+      expect(described_class::DEFAULT_PORT).to eq(8000)
+    end
+  end
+
   describe "settings" do
     it "must default the host to DEFAULT_HOST" do
       expect(described_class.host).to eq(described_class::DEFAULT_HOST)
