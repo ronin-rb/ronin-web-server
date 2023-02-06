@@ -24,8 +24,8 @@ describe Ronin::Web::Server::Base do
   end
 
   describe "settings" do
-    it "must default the host to DEFAULT_HOST" do
-      expect(described_class.host).to eq(described_class::DEFAULT_HOST)
+    it "must default the bind to DEFAULT_HOST" do
+      expect(described_class.bind).to eq(described_class::DEFAULT_HOST)
     end
 
     it "must default the port to DEFAULT_PORT" do

@@ -132,7 +132,7 @@ module Ronin
 
         use Rack::UserAgent
 
-        set :host, DEFAULT_HOST
+        set :bind, DEFAULT_HOST
         set :port, DEFAULT_PORT
 
         before do
