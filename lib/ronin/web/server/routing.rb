@@ -181,7 +181,8 @@ module Ronin
           # @api public
           #
           def directory(path,local_dir,conditions={})
-            dir = Rack::File.new(local_dir)
+            path = path.chomp('/')
+            dir  = Rack::File.new(local_dir)
 
             get("#{path}/*",conditions) do |sub_path|
               response = dir.call(env.merge('PATH_INFO' => "/#{sub_path}"))
@@ -207,7 +208,7 @@ module Ronin
           # @api public
           #
           def public_dir(path,conditions={})
-            directory('',path,conditions)
+            directory('/',path,conditions)
           end
 
           #

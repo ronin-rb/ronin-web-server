@@ -197,6 +197,27 @@ describe Ronin::Web::Server::Routing do
         )
       end
     end
+
+    context "when the exposed directory ends with a '/'" do
+      module TestRouting
+        class TestDirectoryWithTrailingSlash < Sinatra::Base
+          include Ronin::Web::Server::Routing
+
+          directory '/test/', File.join(__dir__,'fixtures','dir')
+        end
+      end
+
+      let(:app) { TestRouting::TestDirectoryWithTrailingSlash }
+
+      it "must omit the trailing '/' from the final route" do
+        get '/test/file1.txt'
+
+        expect(last_response).to be_ok
+        expect(last_response.body).to eq(
+          File.read(File.join(fixtures_dir,'dir','file1.txt'))
+        )
+      end
+    end
   end
 
   describe ".public_dir" do
