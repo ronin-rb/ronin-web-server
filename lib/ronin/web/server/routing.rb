@@ -145,10 +145,10 @@ module Ronin
           #
           # Hosts the contents of a file.
           #
-          # @param [String, Regexp] remote_path
+          # @param [String, Regexp] path
           #   The path the web server will host the file at.
           #
-          # @param [String] local_path
+          # @param [String] local_file
           #   The path to the local file.
           #
           # @param [Hash{Symbol => Object}] conditions
@@ -159,17 +159,17 @@ module Ronin
           #
           # @api public
           #
-          def file(remote_path,local_path,conditions={})
-            get(remote_path,conditions) { send_file(local_path) }
+          def file(path,local_file,conditions={})
+            get(path,conditions) { send_file(local_file) }
           end
 
           #
           # Hosts the contents of the directory.
           #
-          # @param [String] remote_path
+          # @param [String] path
           #   The path the web server will host the directory at.
           #
-          # @param [String] local_path
+          # @param [String] local_dir
           #   The path to the local directory.
           #
           # @param [Hash{Symbol => Object}] conditions
@@ -180,10 +180,10 @@ module Ronin
           #
           # @api public
           #
-          def directory(remote_path,local_path,conditions={})
-            dir = Rack::File.new(local_path)
+          def directory(path,local_dir,conditions={})
+            dir = Rack::File.new(local_dir)
 
-            get("#{remote_path}/*",conditions) do |sub_path|
+            get("#{path}/*",conditions) do |sub_path|
               response = dir.call(env.merge('PATH_INFO' => "/#{sub_path}"))
 
               if response[0] == 200 then response
