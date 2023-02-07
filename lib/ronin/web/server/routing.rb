@@ -251,6 +251,8 @@ module Ronin
           # @api public
           #
           def mount(dir,app,conditions={})
+            dir = dir.chomp('/')
+
             any("#{dir}/?*",conditions) do |sub_path|
               app.call(env.merge('PATH_INFO' => "/#{sub_path}"))
             end

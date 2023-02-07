@@ -323,5 +323,24 @@ describe Ronin::Web::Server::Routing do
         expect(last_response.body).to eq('main app')
       end
     end
+
+    context "when the exposed directory ends with a '/'" do
+      module TestRouting
+        class TestMountWithTrailingSlash < Sinatra::Base
+          include Ronin::Web::Server::Routing
+
+          mount '/sub/', SubApp
+        end
+      end
+
+      let(:app) { TestRouting::TestMountWithTrailingSlash }
+
+      it "must omit the trailing '/' from the final route" do
+        get '/sub/test'
+
+        expect(last_response).to be_ok
+        expect(last_response.body).to eq('sub-app')
+      end
+    end
   end
 end
