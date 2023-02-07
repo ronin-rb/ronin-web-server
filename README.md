@@ -59,7 +59,7 @@ security research and development.
   * [os_version][docs-os_version] - matches the OS version from the `User-Agent`
     header of the request.
 * Has 97% documentation coverage.
-* Has 85% test coverage.
+* Has 90% test coverage.
 
 [docs-any]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Routing/ClassMethods.html#any-instance_method
 [docs-default]: https://ronin-rb.dev/docs/ronin-web-server/Ronin/Web/Server/Routing/ClassMethods.html#default-instance_method
