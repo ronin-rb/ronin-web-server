@@ -287,6 +287,10 @@ describe Ronin::Web::Server::Routing do
     module TestRouting
       class SubApp < Sinatra::Base
 
+        get '/' do
+          'sub-app root'
+        end
+
         get '/test' do
           'sub-app'
         end
@@ -312,6 +316,15 @@ describe Ronin::Web::Server::Routing do
 
         expect(last_response).to be_ok
         expect(last_response.body).to eq('sub-app')
+      end
+
+      context "when the request is for the sub-apps root route" do
+        it "must route the request to the sub-app's '/' route" do
+          get '/sub'
+
+          expect(last_response).to be_ok
+          expect(last_response.body).to eq('sub-app root')
+        end
       end
     end
 
