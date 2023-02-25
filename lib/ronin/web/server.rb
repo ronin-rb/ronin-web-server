@@ -22,6 +22,11 @@ require 'ronin/web/server/base'
 require 'ronin/web/server/app'
 
 module Ronin
+  #
+  # Namespace for [ronin-web].
+  #
+  # [ronin-web]: https://github.com/ronin-rb/ronin-web#readme
+  #
   module Web
     #
     # Returns the Ronin Web Server.
