@@ -30,8 +30,8 @@ group :development do
   gem 'yard',            '~> 0.9'
   gem 'yard-spellcheck', require: false
 
-  gem 'dead_end',       require: false
-  gem 'sord',           require: false, platform: :mri
-  gem 'stackprof',      require: false, platform: :mri
-  gem 'rubocop',        require: false, platform: :mri
+  gem 'dead_end',        require: false
+  gem 'sord',            require: false, platform: :mri
+  gem 'stackprof',       require: false, platform: :mri
+  gem 'rubocop',         require: false, platform: :mri
 end
