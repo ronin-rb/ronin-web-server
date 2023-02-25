@@ -28,7 +28,6 @@ module Ronin
       # Provides Sinatra routing and helper methods.
       #
       module Helpers
-
         include Rack::Utils
         include Sinatra::Helpers
 

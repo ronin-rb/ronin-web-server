@@ -84,7 +84,7 @@ module Ronin
           #   default do
           #     status 200
           #     content_type :html
-          #     
+          #
           #     %{
           #     <html>
           #       <body>

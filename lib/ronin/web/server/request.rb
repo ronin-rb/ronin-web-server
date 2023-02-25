@@ -63,6 +63,7 @@ module Ronin
             if name =~ /^HTTP_/
               header_words = name[5..].split('_')
               header_words.each(&:capitalize!)
+
               header_name = header_words.join('-')
 
               headers[header_name] = value

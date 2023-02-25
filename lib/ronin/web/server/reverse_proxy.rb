@@ -38,7 +38,7 @@ module Ronin
       #       proxy.on_request do |request|
       #         # ...
       #       end
-      #    
+      #
       #       proxy.on_response do |response|
       #         # ...
       #       end
@@ -48,9 +48,9 @@ module Ronin
       # ### App
       #
       #     class App < Ronin::Web::Server::Base
-      #     
+      #
       #       mount '/signin', Ronin::Web::Server::ReverseProxy.new
-      #     
+      #
       #     end
       #
       # @api public
@@ -179,10 +179,11 @@ module Ronin
           headers = request.headers
           body    = request.body.read
 
-          http = connection_for(host,port, ssl: ssl)
+          http          = connection_for(host,port, ssl: ssl)
           http_response = http.request(method,path, query:   query,
                                                     headers: headers,
                                                     body:    body)
+
           response_headers = {}
 
           http_response.each_capitalized do |name,value|
@@ -228,12 +229,12 @@ module Ronin
         def run!(host: DEFAULT_HOST, port: DEFAULT_PORT, server: DEFAULT_SERVER,
                  **rack_options)
           server = Rack::Server.new(
-            app:    self,
-            server: server,
-            Host:   host,
-            Port:   port,
-            **rack_options
-          )
+                     app:    self,
+                     server: server,
+                     Host:   host,
+                     Port:   port,
+                     **rack_options
+                   )
 
           server.start do |handler|
             trap(:INT)  { quit!(server,handler) }

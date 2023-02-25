@@ -279,7 +279,7 @@ module Ronin
           #
           # @example Match versions of Chrome with known vulnerabilities:
           #   vuln_versions = File.readlines('chrome_versions.txt', chomp: true)
-          #   
+          #
           #   get '/path', browser: :chrome, browser_version: vuln_versions do
           #     # ...
           #   end
@@ -415,7 +415,7 @@ module Ronin
           #
           # @example Match versions of Android with known vulnerabilities:
           #   vuln_versions = File.readlines('android_versions.txt', chomp: true)
-          #   
+          #
           #   get '/path', os: :android, os_version: vuln_versions do
           #     # ...
           #   end

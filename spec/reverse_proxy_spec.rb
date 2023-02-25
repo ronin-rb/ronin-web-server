@@ -40,7 +40,7 @@ describe Ronin::Web::Server::ReverseProxy do
     let(:http_response_headers) do
       {'X-Foo' => 'bar'}
     end
-    let(:http_response_body)   { nil }
+    let(:http_response_body) { nil }
 
     before do
       stub_request(:get,http_request_uri).to_return(
@@ -110,12 +110,12 @@ describe Ronin::Web::Server::ReverseProxy do
 
       context "when the #on_response callback accepts two arguments" do
         it "must pass both the request and the response objects" do
-          yielded_request = nil
+          yielded_request  = nil
           yielded_response = nil
 
           reverse_proxy = described_class.new do |proxy|
             proxy.on_response do |request,response|
-              yielded_request = request
+              yielded_request  = request
               yielded_response = response
             end
           end
@@ -181,7 +181,7 @@ describe Ronin::Web::Server::ReverseProxy do
     let(:http_response_headers) do
       {'X-Foo' => 'bar'}
     end
-    let(:http_response_body)   { nil }
+    let(:http_response_body) { nil }
 
     before do
       stub_request(:get,http_request_uri).to_return(
