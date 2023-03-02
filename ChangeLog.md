@@ -1,3 +1,10 @@
+### 0.1.1 / 2023-03-01
+
+* Correctly set the `bind` setting in {Ronin::Web::Server::Base} to ensure it
+  will always listen on `0.0.0.0`.
+* Allow `directory` and `mount` to accept directory paths ending with a `/`.
+* Increased test coverage.
+
 ### 0.1.0 / 2023-02-01
 
 * Extracted and refactored from [ronin-web](https://github.com/ronin-rb/ronin-web/tree/v0.3.0.rc1).
