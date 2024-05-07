@@ -34,6 +34,15 @@ module Ronin
     # @param [Hash] options
     #   Additional options.
     #
+    # @option options [String] :host
+    #   The host the server will listen on.
+    #
+    # @option options [Integer] :port
+    #   The port the server will bind to.
+    #
+    # @option options [String] :server
+    #   The Web Server to run on.
+    #
     # @yield [server]
     #   If a block is given, it will be passed the current web server.
     #
