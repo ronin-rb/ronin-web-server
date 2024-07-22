@@ -4,7 +4,7 @@ description: |
   ronin-web-server is a custom Ruby web server based on Sinatra tailored for
   security research and development.
 
-license: LGPL-3.0
+license: LGPL-3.0-or-later
 authors: Postmodern
 email: postmodern.mod3@gmail.com
 homepage: https://ronin-rb.dev/
