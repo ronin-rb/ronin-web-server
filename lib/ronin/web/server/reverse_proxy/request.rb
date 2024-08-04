@@ -18,7 +18,7 @@
 # along with ronin-web-server.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/web/server/request'
+require_relative '../request'
 
 module Ronin
   module Web

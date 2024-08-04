@@ -18,11 +18,11 @@
 # along with ronin-web-server.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/web/server/request'
-require 'ronin/web/server/response'
-require 'ronin/web/server/routing'
-require 'ronin/web/server/helpers'
-require 'ronin/web/server/conditions'
+require_relative 'request'
+require_relative 'response'
+require_relative 'routing'
+require_relative 'helpers'
+require_relative 'conditions'
 
 require 'rack'
 require 'sinatra/base'

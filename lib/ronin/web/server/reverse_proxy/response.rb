@@ -18,7 +18,7 @@
 # along with ronin-web-server.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/web/server/response'
+require_relative '../response'
 
 module Ronin
   module Web

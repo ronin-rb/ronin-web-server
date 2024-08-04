@@ -18,8 +18,8 @@
 # along with ronin-web-server.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/web/server/base'
-require 'ronin/web/server/app'
+require_relative 'server/base'
+require_relative 'server/app'
 
 module Ronin
   #

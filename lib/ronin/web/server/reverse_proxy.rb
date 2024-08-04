@@ -18,10 +18,10 @@
 # along with ronin-web-server.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/web/server/reverse_proxy/request'
-require 'ronin/web/server/reverse_proxy/response'
-require 'ronin/support/network/http'
+require_relative 'reverse_proxy/request'
+require_relative 'reverse_proxy/response'
 
+require 'ronin/support/network/http'
 require 'rack'
 
 module Ronin
