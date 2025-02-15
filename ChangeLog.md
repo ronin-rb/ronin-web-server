@@ -1,3 +1,8 @@
+### 0.1.2 / 2025-02-14
+
+* Use `require_relative` to improve load times.
+* Documentation improvements.
+
 ### 0.1.1 / 2023-03-01
 
 * Correctly set the `bind` setting in {Ronin::Web::Server::Base} to ensure it
