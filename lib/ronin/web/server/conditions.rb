@@ -123,18 +123,23 @@ module Ronin
           # Condition to match the company/ISP name of the ASN information for
           # the client's IP address.
           #
-          # @param [String] name
+          # @param [String, Regexp, Proc, #===] matcher
           #   The name of the company/ISP that the ASN is assigned to.
           #
-          # @example
+          # @example Matching the exact AS name:
           #   get '/path', asn_name: 'CLOUDFLARENET' do
           #     # ...
           #   end
           #
-          def asn_name(name)
+          # @example Matching any AS record containing 'CLOUDFLARE', 'CloudFlare', 'Cloudflare', or 'cloudflare':
+          #   get '/path', asn_name: /cloudflare/i do
+          #     # ...
+          #   end
+          #
+          def asn_name(matcher)
             condition do
               if (record = Support::Network::ASN.query(request.ip))
-                record.name == name
+                matcher === record.name
               end
             end
           end
