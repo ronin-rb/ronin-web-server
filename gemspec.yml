@@ -20,6 +20,8 @@ metadata:
 required_ruby_version: ">= 3.0.0"
 
 dependencies:
+  # NOTE: required for rack ~> 2.2 on Ruby 4.0.0.
+  ostruct: ~> 0.1
   webrick: ~> 1.0
   rack: ~> 2.2
   rack-user_agent: ~> 0.5
