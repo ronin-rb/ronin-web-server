@@ -72,18 +72,29 @@ module Ronin
           #
           # Condition to match the AS number of the client's IP address.
           #
-          # @param [Integer] number
-          #   The AS number to match.
+          # @param [Integer, Set<Integer>, Range<Integer>, Proc, #===] matcher
+          #   The specific AS number, a set of AS numbers, or a range of AS
+          #   numbers to  match the client's AS number against.
           #
-          # @example
+          # @example Matching against a specific AS number:
           #   get '/path', asn: 13335 do
           #     # ...
           #   end
           #
-          def asn(number)
+          # @example Matching against a set of AS numbers:
+          #   get '/path', asn: Set[13335, 209242, ...] do
+          #     # ...
+          #   end
+          #
+          # @example Matching against a range of AS numbers:
+          #   get '/path', asn: (13335..133999) do
+          #     # ...
+          #   end
+          #
+          def asn(matcher)
             condition do
               if (record = Support::Network::ASN.query(request.ip))
-                record.number == number
+                matcher === record.number
               end
             end
           end
