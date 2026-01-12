@@ -150,9 +150,9 @@ documentation.
 
 * [Ruby] >= 3.0.0
 * [webrick] ~> 1.0
-* [rack] ~> 2.2
+* [rack] ~> 3.0
 * [rack-user_agent] ~> 0.5
-* [sinatra] ~> 3.0
+* [sinatra] ~> 4.0
 * [ronin-support] ~> 1.0
 
 ## Install
