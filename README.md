@@ -182,7 +182,7 @@ gem 'ronin-web-server', '~> 0.1'
 
 ronin-web-server - A custom Ruby web server based on Sinatra.
 
-Copyright (c) 2006-2025 Hal Brodigan (postmodern.mod3 at gmail.com)
+Copyright (c) 2006-2026 Hal Brodigan (postmodern.mod3 at gmail.com)
 
 ronin-web-server is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published
