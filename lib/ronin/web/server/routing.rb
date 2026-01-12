@@ -18,7 +18,7 @@
 # along with ronin-web-server.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'rack/file'
+require 'rack/files'
 require 'rack/directory'
 
 module Ronin
@@ -182,7 +182,7 @@ module Ronin
           #
           def directory(path,local_dir,conditions={})
             path = path.chomp('/')
-            dir  = Rack::File.new(local_dir)
+            dir  = Rack::Files.new(local_dir)
 
             get("#{path}/*",conditions) do |sub_path|
               response = dir.call(env.merge('PATH_INFO' => "/#{sub_path}"))
