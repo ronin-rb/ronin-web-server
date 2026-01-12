@@ -129,26 +129,6 @@ module Ronin
           end
 
           #
-          # Condition for matching the `Host` header.
-          #
-          # @param [Regexp, String, Proc, #===] matcher
-          #   The host to match against.
-          #
-          # @example Match the exact `Host` header:
-          #   get '/path', host: 'example.com' do
-          #     # ...
-          #   end
-          #
-          # @example Match any `Host` header ending in `.example.com`:
-          #   get '/path', host: /\.example\.com$/ do
-          #     # ...
-          #   end
-          #
-          def host(matcher)
-            condition { matcher === request.host }
-          end
-
-          #
           # Condition to match the `Referer` header of the request.
           #
           # @param [Regexp, String, Proc, #===] matcher
