@@ -224,9 +224,23 @@ module Ronin
           # @param [Hash] conditions
           #   Additional routing conditions.
           #
+          # @note
+          #   This method will add the vhost name to the `permitted_hosts` of
+          #   both apps.
+          #
           # @api public
           #
           def vhost(host,app,conditions={})
+            # add the new vhost name to our apps permitted_hosts
+            set :host_authorization, {
+              permitted_hosts: host_authorization[:permitted_hosts] + [host]
+            }
+
+            # add the new vhost name to the destination app's permitted_hosts
+            app.set :host_authorization, {
+              permitted_hosts: app.host_authorization[:permitted_hosts] + [host]
+            }
+
             any('*',conditions.merge(host: host)) do
               app.call(env)
             end

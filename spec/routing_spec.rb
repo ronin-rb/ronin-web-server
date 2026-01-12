@@ -262,7 +262,20 @@ describe Ronin::Web::Server::Routing do
       end
     end
 
-    let(:app) { TestRouting::TestVHost }
+    let(:vhost_app) { TestRouting::VHostApp }
+    let(:app)       { TestRouting::TestVHost }
+
+    it "must add the vhost name to the app's permitted_hosts" do
+      permitted_hosts = app.host_authorization[:permitted_hosts]
+
+      expect(permitted_hosts).to include('example.com')
+    end
+
+    it "must add the vhost name to the destination app's permitted_hosts" do
+      permitted_hosts = vhost_app.host_authorization[:permitted_hosts]
+
+      expect(permitted_hosts).to include('example.com')
+    end
 
     context "when the request has the matching Host: header set" do
       it "must route the request to the other app" do
