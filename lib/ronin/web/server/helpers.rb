@@ -58,7 +58,7 @@ module Ronin
         # @api public
         #
         def content_type_for(path)
-          content_type mime_type_for(path)
+          content_type(mime_type_for(path))
         end
       end
     end
