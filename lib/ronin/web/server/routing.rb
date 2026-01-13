@@ -231,15 +231,19 @@ module Ronin
           # @api public
           #
           def vhost(host,app,conditions={})
-            # add the new vhost name to our apps permitted_hosts
-            set :host_authorization, {
-              permitted_hosts: host_authorization[:permitted_hosts] + [host]
-            }
+            if (permitted_hosts = host_authorization[:permitted_hosts])
+              # add the new vhost name to our apps permitted_hosts
+              set :host_authorization, {
+                permitted_hosts: permitted_hosts + [host]
+              }
+            end
 
-            # add the new vhost name to the destination app's permitted_hosts
-            app.set :host_authorization, {
-              permitted_hosts: app.host_authorization[:permitted_hosts] + [host]
-            }
+            if (permitted_hosts = app.host_authorization[:permitted_hosts])
+              # add the new vhost name to the destination app's permitted_hosts
+              app.set :host_authorization, {
+                permitted_hosts: permitted_hosts + [host]
+              }
+            end
 
             any('*',conditions.merge(host: host)) do
               app.call(env)

@@ -277,6 +277,65 @@ describe Ronin::Web::Server::Routing do
       expect(permitted_hosts).to include('example.com')
     end
 
+    context "when the host authorization of the app is disabled" do
+      module TestRouting
+        class TestVHostWithoutPermittedHosts < Sinatra::Base
+          include Ronin::Web::Server::Routing
+
+          # NOTE: setting environment to :test or :production will set
+          # host_authorization[:permitted_hosts] to nil
+          set :environment, :test
+
+          vhost 'example.com', VHostApp
+
+          get '/test' do
+            'main app'
+          end
+        end
+      end
+
+      let(:app) { TestRouting::TestVHostWithoutPermittedHosts }
+
+      it "must not change permitted_hosts" do
+        permitted_hosts = app.host_authorization[:permitted_hosts]
+
+        expect(permitted_hosts).to be(nil)
+      end
+    end
+
+    context "when the host authorization of the destination app is disabled" do
+      module TestRouting
+        class VHostAppWithoutPermittedHosts < Sinatra::Base
+          # NOTE: setting environment to :test or :production will set
+          # host_authorization[:permitted_hosts] to nil
+          set :environment, :test
+
+          get '/test' do
+            'example.com app'
+          end
+        end
+
+        class TestVHostWithoutPermittedHosts < Sinatra::Base
+          include Ronin::Web::Server::Routing
+
+          vhost 'example.com', VHostAppWithoutPermittedHosts
+
+          get '/test' do
+            'main app'
+          end
+        end
+      end
+
+      let(:vhost_app) { TestRouting::VHostAppWithoutPermittedHosts }
+      let(:app)       { TestRouting::TestVHostWithoutPermittedHosts }
+
+      it "must not change permitted_hosts" do
+        permitted_hosts = vhost_app.host_authorization[:permitted_hosts]
+
+        expect(permitted_hosts).to be(nil)
+      end
+    end
+
     context "when the request has the matching Host: header set" do
       it "must route the request to the other app" do
         get '/test', {}, {'HTTP_HOST' => 'example.com'}
