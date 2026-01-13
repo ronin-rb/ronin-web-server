@@ -265,13 +265,13 @@ describe Ronin::Web::Server::Routing do
     let(:vhost_app) { TestRouting::VHostApp }
     let(:app)       { TestRouting::TestVHost }
 
-    it "must add the vhost name to the app's permitted_hosts" do
+    it "must add the vhost name to the app's phost_authorization[:ermitted_hosts]" do
       permitted_hosts = app.host_authorization[:permitted_hosts]
 
       expect(permitted_hosts).to include('example.com')
     end
 
-    it "must add the vhost name to the destination app's permitted_hosts" do
+    it "must add the vhost name to the destination app's host_authorization[:permitted_hosts]" do
       permitted_hosts = vhost_app.host_authorization[:permitted_hosts]
 
       expect(permitted_hosts).to include('example.com')
@@ -296,7 +296,7 @@ describe Ronin::Web::Server::Routing do
 
       let(:app) { TestRouting::TestVHostWithoutPermittedHosts }
 
-      it "must not change permitted_hosts" do
+      it "must not change host_authorization[:permitted_hosts]" do
         permitted_hosts = app.host_authorization[:permitted_hosts]
 
         expect(permitted_hosts).to be(nil)
@@ -329,7 +329,7 @@ describe Ronin::Web::Server::Routing do
       let(:vhost_app) { TestRouting::VHostAppWithoutPermittedHosts }
       let(:app)       { TestRouting::TestVHostWithoutPermittedHosts }
 
-      it "must not change permitted_hosts" do
+      it "must not change host_authorization[:permitted_hosts]" do
         permitted_hosts = vhost_app.host_authorization[:permitted_hosts]
 
         expect(permitted_hosts).to be(nil)
