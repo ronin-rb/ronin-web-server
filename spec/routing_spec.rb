@@ -265,16 +265,28 @@ describe Ronin::Web::Server::Routing do
     let(:vhost_app) { TestRouting::VHostApp }
     let(:app)       { TestRouting::TestVHost }
 
-    it "must add the vhost name to the app's phost_authorization[:ermitted_hosts]" do
-      permitted_hosts = app.host_authorization[:permitted_hosts]
+    context "when the host authorization of the app is enabled" do
+      module TestRouting
+        class TestVHostWithPermittedHosts < Sinatra::Base
+          include Ronin::Web::Server::Routing
 
-      expect(permitted_hosts).to include('example.com')
-    end
+          set :host_authorization, {permitted_hosts: %w[localhost]}
 
-    it "must add the vhost name to the destination app's host_authorization[:permitted_hosts]" do
-      permitted_hosts = vhost_app.host_authorization[:permitted_hosts]
+          vhost 'example.com', VHostApp
 
-      expect(permitted_hosts).to include('example.com')
+          get '/test' do
+            'main app'
+          end
+        end
+      end
+
+      let(:app) { TestRouting::TestVHostWithPermittedHosts }
+
+      it "must add the vhost name to the app's phost_authorization[:ermitted_hosts]" do
+        permitted_hosts = app.host_authorization[:permitted_hosts]
+
+        expect(permitted_hosts).to include('example.com')
+      end
     end
 
     context "when the host authorization of the app is disabled" do
@@ -282,9 +294,7 @@ describe Ronin::Web::Server::Routing do
         class TestVHostWithoutPermittedHosts < Sinatra::Base
           include Ronin::Web::Server::Routing
 
-          # NOTE: setting environment to :test or :production will set
-          # host_authorization[:permitted_hosts] to nil
-          set :environment, :test
+          set :host_authorization, {}
 
           vhost 'example.com', VHostApp
 
@@ -303,11 +313,42 @@ describe Ronin::Web::Server::Routing do
       end
     end
 
+    context "when the host authorization of the destination app is enabled" do
+      module TestRouting
+        class VHostAppWithPermittedHosts < Sinatra::Base
+          set :host_authorization, {permitted_hosts: %w[localhost]}
+
+          get '/test' do
+            'example.com app'
+          end
+        end
+
+        class TestVHostWithPermittedHosts < Sinatra::Base
+          include Ronin::Web::Server::Routing
+
+          vhost 'example.com', VHostAppWithPermittedHosts
+
+          get '/test' do
+            'main app'
+          end
+        end
+      end
+
+      let(:vhost_app) { TestRouting::VHostAppWithPermittedHosts }
+      let(:app)       { TestRouting::TestVHostWithPermittedHosts }
+
+      it "must add the vhost name to the destination app's host_authorization[:permitted_hosts]" do
+        permitted_hosts = vhost_app.host_authorization[:permitted_hosts]
+
+        expect(permitted_hosts).to include('example.com')
+      end
+    end
+
     context "when the host authorization of the destination app is disabled" do
       module TestRouting
         class VHostAppWithoutPermittedHosts < Sinatra::Base
-          # NOTE: setting environment to :test or :production will set
-          # host_authorization[:permitted_hosts] to nil
+          set :host_authorization, {}
+
           set :environment, :test
 
           get '/test' do
