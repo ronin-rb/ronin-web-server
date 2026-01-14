@@ -26,6 +26,10 @@ describe Ronin::Web::Server::Base do
     it "must default the port to DEFAULT_PORT" do
       expect(described_class.port).to eq(described_class::DEFAULT_PORT)
     end
+
+    it "must disable host_authorization by default" do
+      expect(described_class.host_authorization).to eq({})
+    end
   end
 
   describe "not_found" do

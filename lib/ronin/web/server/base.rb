@@ -135,6 +135,8 @@ module Ronin
         set :bind, DEFAULT_HOST
         set :port, DEFAULT_PORT
 
+        set :host_authorization, -> { {} }
+
         before do
           @request  = Request.new(@env)
           @response = Response.new
